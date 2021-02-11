@@ -96,6 +96,7 @@
 			</div>
 <!-- paginacion con parametros -->
 
+
 		<div class="ui pagination menu" v-if="parametros">
 <nuxt-link class="item"    
 	:to="{ name: 'descubrir-pag', params: {pag: 1}, query: urlTest }" rel="start"

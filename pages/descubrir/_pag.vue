@@ -88,8 +88,8 @@
 // @ is an alias to /src
 import {mapState} from 'vuex'
 import dropdown from '@/node_modules/vue-dropdowns/Dropdown.vue';
-import descubrirSidebar from '@/components/descubrir/descubrirSidebar.vue'
-import descubrirContent from '@/components/descubrir/descubrirContent.vue'
+import descubrirSidebar from '@/components/Descubrir/DescubrirSidebar.vue'
+import descubrirContent from '@/components/Descubrir/DescubrirContent.vue'
 import SkeletonMio from '@/components/SkeletonMio/SkeletonMio.vue'
 export default {
   name: 'descubrir',
