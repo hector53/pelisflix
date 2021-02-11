@@ -51,6 +51,7 @@ TendenciasPeliculas, TendenciasUsers, TendenciasTabla
    this.$store.commit('setSkeleton', 0);
 },
     created(){
+      
         
     }
 }
