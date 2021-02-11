@@ -58,14 +58,9 @@ export default {
     SeriesHomeNotables, LastMoviesHome, SeriesHomeRanking, ColeccionesMasVistas
   }, 
 
-        watch:{
-    $route (to, from){
-       this.$store.commit('setSkeleton', 0);
-    }
-} ,
-  created() {
-      //this.$store.commit('setSkeleton', 0);
-      
+       
+  mounted() {
+      this.$store.commit('setSkeleton', 0);
   },
 }
 </script>

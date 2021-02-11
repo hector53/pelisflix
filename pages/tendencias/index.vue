@@ -48,10 +48,10 @@ export default {
 TendenciasPeliculas, TendenciasUsers, TendenciasTabla
       }, 
   mounted() {
- 
+   this.$store.commit('setSkeleton', 0);
 },
     created(){
-              this.$store.commit('setSkeleton', 0);
+        
     }
 }
 </script>

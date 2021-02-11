@@ -51,7 +51,7 @@ export default {
       }, 
   mounted() {
 
-
+  this.$store.commit('setSkeleton', 0);
 var co = Cookies.get("user_session"); 
      
           var param = this.$router.history.current.params.user; 
@@ -81,7 +81,7 @@ var co = Cookies.get("user_session");
 
     },
     created(){
-         this.$store.commit('setSkeleton', 0);
+      
     }
 }
 </script>

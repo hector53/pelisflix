@@ -69,11 +69,11 @@ export default {
         }
 	}, 
 	 mounted() {
-
+  this.$store.commit('setSkeleton', 0);
 this.getCalendar()
   },
   created() {
-    this.$store.commit('setSkeleton', 0);
+   
   },
 }
 </script>

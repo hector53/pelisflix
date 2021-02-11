@@ -42,7 +42,7 @@ export default {
            },
      components: {Cookies, ForoComp, ForoVerSeccion, ForoVerTema, ForoNewTema},
   mounted() {
-   
+     this.$store.commit('setSkeleton', 0);
       var co = Cookies.get("user_session"); 
         if(co != undefined)
         {
@@ -74,7 +74,7 @@ export default {
          }
   },
   created() {
-    this.$store.commit('setSkeleton', 0);
+
   },
 }
 </script>

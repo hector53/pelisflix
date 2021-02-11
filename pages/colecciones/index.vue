@@ -33,10 +33,10 @@ export default {
          ColeccionesDestacadas, MisColecciones
          }, 
   mounted() {
-       
+         this.$store.commit('setSkeleton', 0);
     },
     created() {
-           this.$store.commit('setSkeleton', 0);
+
 
     },
 }

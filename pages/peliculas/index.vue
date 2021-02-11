@@ -284,11 +284,11 @@ export default {
     }
 } ,
   mounted() {
-    console.log("cambie de ruta")
+      this.$store.commit('setSkeleton', 0);
 	 this.getVerPeliculas()
     },
     created(){
-       this.$store.commit('setSkeleton', 0);
+     
        
         
 

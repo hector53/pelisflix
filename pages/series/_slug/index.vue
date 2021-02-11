@@ -410,6 +410,7 @@ export default {
 BreadCrumbsSeries, ComentariosFlix, Cookies, ActoresSeries
          }, 
   mounted() {
+        this.$store.commit('setSkeleton', 0);
        var co = Cookies.get("user_session"); 
         if(co != undefined)
         {
@@ -421,7 +422,7 @@ BreadCrumbsSeries, ComentariosFlix, Cookies, ActoresSeries
     },
     created() {
 //   console.log(this.$route)
-      this.$store.commit('setSkeleton', 0);
+     
     },
 
 }

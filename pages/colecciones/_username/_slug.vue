@@ -415,7 +415,7 @@ export default {
            },
      components: {Cookies, ComentariosFlix},
   mounted() {
-   
+     this.$store.commit('setSkeleton', 0);
       var co = Cookies.get("user_session"); 
         if(co != undefined)
         {
@@ -432,7 +432,7 @@ this.getMisColecciones(0)
   },
 
   created() {
-    this.$store.commit('setSkeleton', 0);
+  
   },
 }
 </script>
