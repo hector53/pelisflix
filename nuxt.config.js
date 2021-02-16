@@ -63,6 +63,7 @@ module.exports = {
     { src: '~/plugins/dropdownvue.js', mode: 'client'  }, // only on client 
     { src: '~/plugins/vue-range-component.js', mode: 'client'  }, // only on client 
     { src: '~/plugins/vueeditor.js', mode: 'client'  }, // only on client 
+    { src: '~/plugins/mixins.js' }, // only on client 
   ]
 
   
