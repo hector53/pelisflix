@@ -257,7 +257,8 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
             this.userName +
             "&content=" +
             contenido+
-            "&id_comment="+id
+            "&id_comment="+id+
+            "&serieCap="+this.serieCap
         )
           .then((r) => r.json())
           .then((res) => {
