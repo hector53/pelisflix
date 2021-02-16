@@ -102,7 +102,7 @@
              <Likes :post_id="movie.idcap" :id_user="id_user" :userName="userName" v-if="movie.idcap" />
           </section>
         </div>
-        <ComentariosFlix  :post_id="movie.idcap" :id_user="id_user" :userName="userName" v-if="movie.idcap" />
+        <ComentariosFlix :serieCap="1"  :post_id="movie.idcap" :id_user="id_user" :userName="userName" v-if="movie.idcap" />
         <!-- // .user-reviews -->
       </div>
       <!-- // .common-lists -->

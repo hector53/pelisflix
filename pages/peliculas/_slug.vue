@@ -114,7 +114,7 @@
                     <div class="ui column grid">
                        
                         <ActoresMovies :arrayActoresMovie="movie.actores" />
-                       <ComentariosFlix  :post_id="post_id" :id_user="id_user" :userName="userName" />
+                       <ComentariosFlix  :serieCap="0" :post_id="post_id" :id_user="id_user" :userName="userName" />
                     </div>
                 </div>
             </div>
@@ -134,7 +134,7 @@
 <script>
 // @ is an alias to /src
 import Cookies from "js-cookie";
-
+import axios from 'axios'
 import {mapState} from 'vuex'
 import BreadCrumbsMovies from '../../components/MoviesDetails/BreadCrumbsMovies.vue'
 import ReproductoresMovies from '../../components/MoviesDetails/ReproductoresMovies.vue'
@@ -142,14 +142,49 @@ import ActoresMovies from '../../components/MoviesDetails/ActoresMovies.vue'
 import ComentariosFlix from '../../components/Comentarios/ComentariosFlix.vue'
 import Likes from '../../components/Likes/Likes.vue'; 
 export default {
+    
   name: 'MoviesDetails',
+  head(){
+    return {
+      title: this.MoviesDetailsasync[0].titulo+' - Pelisflix',
+            meta: this.SeoPost, 
+            link: [
+      { rel: 'canonical', href: this.$store.state.siteUrl }, 
+      
+    ]
+    }
+  },
+   async asyncData({ params, store }) {
+    // We can use async/await ES6 feature
+    const postMovies = await axios.get(
+      `${store.state.urlProcesos}wp-json/peliculas/detalle_slug/post/?slug=${params.slug}`
+    );
+
+     const seoDetails = await axios.get(
+      `${store.state.urlProcesos}wp-json/wp/v2/movie/${postMovies.data[0].id}`
+    );
+    console.log(seoDetails.data)
+
+    const metaArray = [];
+      seoDetails.data.yoast_meta.map(ele => {
+        metaArray.push({
+         hid: ele.name ? ele.name : ele.property,
+          name: ele.name ? ele.name : ele.property,
+          content: ele.content,
+        });
+      });
+
+    return { MoviesDetailsasync: postMovies.data, SeoPost: metaArray };
+  },
    data (){
         return {
-          MoviesDetails: [], 
+             MoviesDetails: [],
              myText: "", 
              post_id: null, 
              id_user: null, 
           userName: null,
+          post: {},
+           error: []
           
         }
     },
@@ -158,19 +193,7 @@ export default {
         ...mapState(['urlProcesos'])
     },
     methods: {
-       
-            async MoviesGetDetails(){
-            await fetch(this.urlProcesos+'wp-json/peliculas/detalle_slug/post/?slug='+this.$route.params.slug)
-                    .then((r) => r.json())
-                    .then((res) => {
-                 //       console.log(res);
-                        this.MoviesDetails = res;
-                        this.post_id = res[0].id 
-                          this.$store.commit('setSkeleton', 1);
-             
-                    }
-                    );
-           }, 
+        
            newTrailerMovie(trailer){
               //mostrar trailer de youtube 
               var youtube = trailer.split("=")
@@ -195,6 +218,7 @@ export default {
 BreadCrumbsMovies, ReproductoresMovies, Likes, ActoresMovies, ComentariosFlix, Cookies
          }, 
   mounted() {
+      console.log(this.MoviesDetailsasync)
        var co = Cookies.get("user_session"); 
         if(co != undefined)
         {
@@ -202,10 +226,11 @@ BreadCrumbsMovies, ReproductoresMovies, Likes, ActoresMovies, ComentariosFlix, C
     this.id_user = co.user_id; 
     this.userName = co.user_login
         }
-            this.MoviesGetDetails();
+        this.MoviesDetails = this.MoviesDetailsasync
+         this.post_id = this.MoviesDetailsasync[0].id
     },
     created() {
-          this.$store.commit('setSkeleton', 0);
+         this.$store.commit('setSkeleton', 0);
     },
 }
 </script>

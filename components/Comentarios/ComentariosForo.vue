@@ -76,7 +76,7 @@
                           <LikeComments :id_user="String(id_user)" :id="String(item.id)" :micomentario="item.micomentario"
                           :like="item.cantidadLikes" :yadi="item.yadi"
                           :dislike="item.cantidadDislikes" :yadid="item.yadid"
-                           @getCommentsLike="getCommentsbyLike()"
+                           @getCommentsLike="getCommentsbyLike()" :serieCap="serieCap"  :post_id="post_id"
                             />
                 <a
                   href="#"
@@ -136,7 +136,7 @@
                       <div class="flex-row buttons">
                        <LikeComments :id_user="String(id_user)" :id="String(subitem.id)" :micomentario="subitem.micomentario"
                           :like="subitem.cantidadLikes" :yadi="subitem.yadi" @getCommentsLike="getCommentsbyLike()"
-                           :dislike="subitem.cantidadDislikes" :yadid="subitem.yadid"
+                           :dislike="subitem.cantidadDislikes" :yadid="subitem.yadid" :serieCap="serieCap"  :post_id="post_id"
                            
                             />
                       </div>
@@ -192,6 +192,8 @@ export default {
     },
     userName: {
       type: String,
+    },
+    serieCap: {
     },
   },
   data() {
@@ -283,7 +285,7 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
          this.loadingComment = true;
       const editor = this.$el.querySelector(".emoji-wysiwyg-editor");
       editor.style.backgroundColor = "#42454f";
-        console.log("mayor q ce4o");
+//        console.log("mayor q ce4o");
         await fetch(
           this.urlProcesos +
             "wp-json/foro/reply/?q=add&id_post=" +
@@ -293,7 +295,8 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
             "&username=" +
             this.userName +
             "&content=" +
-            this.textoComentario
+            this.textoComentario+
+            "&serieCap="+this.serieCap
         )
           .then((r) => r.json())
           .then((res) => {

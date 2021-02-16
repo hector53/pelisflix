@@ -70,7 +70,8 @@
 
 
 
- <ComentariosFlix v-if="skeleton==1 && error == false && p == 1"  :post_id="id_coleccion" :id_user="id_user" :userName="$route.params.username" />
+ <ComentariosFlix v-if="skeleton==1 && error == false && publica == 1" :serieCap="2"  
+  :post_id="id_coleccion" :id_user="id_user" :userName="userName" />
 
 
     
@@ -428,7 +429,7 @@ export default {
 this.getMisColecciones(0)
         }
 
-        
+        console.log(this.p)
   },
 
   created() {

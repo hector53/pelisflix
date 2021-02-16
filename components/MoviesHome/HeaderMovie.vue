@@ -92,7 +92,7 @@
 
 <div class="left floated notifications">
 
-	<DropdownPerfilNotify />
+	<DropdownPerfilNotify :id_user="id_user" />
 
 </div>
 			</div>

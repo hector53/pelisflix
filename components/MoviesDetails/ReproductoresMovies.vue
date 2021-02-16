@@ -20,14 +20,7 @@
             :class="{'active': activePlayer == index}" @click.prevent="ShowPlayersSubs(index, player.embed)" >{{player.stream}}</div>
         
         </div>
-        <div data-gets="" data-type="vuu">
-            <a rel="nofollow" href="https://bit.ly/3jR08j7" target="_blank" class="desktop-only"
-                style="margin:0 auto; width:100%;height: 45px">
-                <img src="https://yabancidizi.pw/video/btistt.gif"
-                    alt="" width="100%" height="40" border="0">
-            </a>
-            <br>
-        </div>
+    
         <div class="ui grid">
             <div class="left floated left aligned column pb-0 twelve wide computer sixteen wide mobile" 
             id="playersol" :class="{'modoCinePlayerSol' : modoCine}" v-click-outside="clicAfueraModoCine">
@@ -54,11 +47,11 @@
             <div class="left floated aligned four wide column computer only pb-0 pl-0" id="playersag">
                 <div data-gets="" data-type="vdy">
                     <a rel="nofollow" href="https://bit.ly/3jNWreg" target="_blank"><img
-                            src="https://yabancidizi.pw/video/yd-promo.gif?v=1"
+                            src="https://api.pelisflix.com/wp-content/uploads/2021/02/adsPromo1.gif"
                             alt="" border="0" width="250" height="210"></a>
                     <br>
                     <a rel="nofollow" href="https://bit.ly/3lKe2VB" target="_blank"><img
-                            src="https://yabancidizi.pw/video/yd-deposit.gif?v=2.3"
+                            src="https://api.pelisflix.com/wp-content/uploads/2021/02/adsPromo2.gif"
                             alt="" border="0" width="250" height="210"></a>
                    
                 </div>

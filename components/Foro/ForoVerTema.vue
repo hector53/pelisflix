@@ -110,7 +110,7 @@
 			</div>
 			
 						
-			   <ComentariosForo v-if="temaID"  :post_id="String(temaID)" :id_user="id_user" :userName="userName" />
+			   <ComentariosForo v-if="temaID" :serieCap="3"  :post_id="String(temaID)" :id_user="id_user" :userName="userName" />
 		
 		</section>
 

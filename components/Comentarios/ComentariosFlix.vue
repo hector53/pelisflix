@@ -61,9 +61,9 @@
           <img class="ui avatar image" :src="item.imagen_perfil" alt="" />
           <div class="content">
             <h6>
-               <router-link  class="review-author" @click.native="$store.commit('scrollToTop')" 
-                :to="{ name: 'PerfilUser', params: {user: item.username} }" >
-             @{{ item.username }}</router-link
+               <nuxt-link  class="review-author" 
+                :to="{ name: 'perfil-user', params: {user: item.username} }" >
+             @{{ item.username }}</nuxt-link
               >
             </h6>
             <div class="review-time">{{item.fecha}}</div>
@@ -76,13 +76,12 @@
                           <LikeComments :id_user="id_user" :id="item.id" :micomentario="item.micomentario"
                           :like="item.cantidadLikes" :yadi="item.yadi"
                           :dislike="item.cantidadDislikes" :yadid="item.yadid"
-                           @getCommentsLike="getCommentsbyLike()"
+                           @getCommentsLike="getCommentsbyLike()" :serieCap="serieCap"  :post_id="post_id"
                             />
                 <a
                   href="#"
                   class="reply-link"
-                  onlyusers=""
-                  data-comment="720036"
+                  
                   @click.prevent="activarReply(item.id)"
                   >Responder (<span>{{item.subs}}</span>)</a
                 >
@@ -90,11 +89,6 @@
               <div class="flex-row" >
                 <form
                   class="review-reply"
-                  data-ctype="2"
-                  data-episode=""
-                  data-forum=""
-                  data-series="3678"
-                  data-comment="720036"
                   style="display: none"
                   :id="'reply_'+item.id"
                 >
@@ -135,10 +129,9 @@
                     <div class="review-extras">
                       <div class="flex-row buttons">
                        <LikeComments :id_user="id_user" :id="subitem.id" :micomentario="subitem.micomentario"
-                          :like="subitem.cantidadLikes" :yadi="subitem.yadi" @getCommentsLike="getCommentsbyLike()"
-                           :dislike="subitem.cantidadDislikes" :yadid="subitem.yadid"
-                           
-                            />
+                       :like="subitem.cantidadLikes" :yadi="subitem.yadi" @getCommentsLike="getCommentsbyLike()"
+                       :dislike="subitem.cantidadDislikes" :yadid="subitem.yadid" :serieCap="serieCap"  :post_id="post_id"
+                      />
                       </div>
                     </div>
                   </div>
@@ -184,13 +177,12 @@ export default {
   name: "ComentariosFlix",
   props: {
     post_id: {
-      type: String,
     },
     id_user: {
-      type: String,
     },
     userName: {
-      type: String,
+    },
+    serieCap: {
     },
   },
   data() {
@@ -244,6 +236,17 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
 
 
  var textoReply = document.getElementById("replyText_"+id)
+ console.log(this.urlProcesos +
+            "wp-json/comentarios/add/post/?q=addR&id_post=" +
+            this.post_id +
+            "&id_user=" +
+            this.id_user +
+            "&username=" +
+            this.userName +
+            "&content=" +
+            contenido+
+            "&id_comment="+id+
+            "&serieCap="+this.serieCap)
  await fetch(
           this.urlProcesos +
             "wp-json/comentarios/add/post/?q=addR&id_post=" +
@@ -254,7 +257,8 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
             this.userName +
             "&content=" +
             contenido+
-            "&id_comment="+id
+            "&id_comment="+id+
+            "&serieCap="+this.serieCap
         )
           .then((r) => r.json())
           .then((res) => {
@@ -277,7 +281,7 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
 }
    //   console.log(this.$refs.emoji);
      
-
+console.log(this.userName)
       if (this.textoComentario.length > 0) {
          this.loadingComment = true;
       const editor = this.$el.querySelector(".emoji-wysiwyg-editor");
@@ -292,7 +296,8 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
             "&username=" +
             this.userName +
             "&content=" +
-            this.textoComentario
+            this.textoComentario+
+            "&serieCap="+this.serieCap
         )
           .then((r) => r.json())
           .then((res) => {
@@ -328,7 +333,7 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
   },
   mounted() {
 
-
+console.log(this.userName)
     this.getCommentsPost();
   },
   components: {

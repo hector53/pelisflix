@@ -3,8 +3,8 @@
 							<h5 class="section-heading">Tendencias Series</h5>
 							<ul class="trending-thisweek">
 								<li v-for="(movie, index) in arrayDatos" :key="index">
-						<nuxt-link @click.native="$store.commit('scrollToTop')" :to="{ name: 'peliculas-slug', params: {slug: movie.slug} }">
-										<h5 class="truncate" title="Friends izle">#{{movie.titulo}}</h5>
+						<nuxt-link :to="{ name: 'series-slug', params: {slug: movie.slug} }">
+										<h5 class="truncate" :title="movie.titulo">#{{movie.titulo}}</h5>
 										<small>+{{movie.visitas}} visitas</small>
 									</nuxt-link>
 								</li>

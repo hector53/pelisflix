@@ -59,7 +59,10 @@ export default {
       type: Boolean,
       required: true,
     },
-  
+  serieCap: {
+    }, 
+     post_id: {
+    }
   
   },
   data() {
@@ -84,7 +87,9 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
            this.opad = true
               await fetch(
           this.urlProcesos +
-            "wp-json/like/comment/?q=dislike&id_comment="+this.id+"&id_user="+this.id_user
+            "wp-json/like/comment/?q=dislike&id_comment="+this.id+"&id_user="+this.id_user+
+            "&serieCap="+this.serieCap+
+            "&id_post="+this.post_id
         )
           .then((r) => r.json())
           .then((res) => {
@@ -105,11 +110,18 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
  return false
 }
        if(this.yadi == false){
+         console.log(this.post_id)
            this.activoClick = true
            this.opa = true
+           console.log( this.urlProcesos +
+            "wp-json/like/comment/?q=like&id_comment="+this.id+"&id_user="+this.id_user+
+            "&serieCap="+this.serieCap+
+            "&id_post="+this.post_id)
               await fetch(
           this.urlProcesos +
-            "wp-json/like/comment/?q=like&id_comment="+this.id+"&id_user="+this.id_user
+            "wp-json/like/comment/?q=like&id_comment="+this.id+"&id_user="+this.id_user+
+            "&serieCap="+this.serieCap+
+            "&id_post="+this.post_id
         )
           .then((r) => r.json())
           .then((res) => {

@@ -6,7 +6,7 @@
             <li class="mofy-moviesli" v-for="(movie, index) in LastMoviesA " :key="index">
                 <div class="mofy-movbox">
                     <div class="mofy-movbox-image relative">
-                    <nuxt-link @click.native="$store.commit('scrollToTop')"  :to="{ name: 'peliculas-slug', params: {slug: movie.slug} }">
+                    <nuxt-link  :to="{ name: 'peliculas-slug', params: {slug: movie.slug} }">
                         
                             <img class="lazy-wide loaded lastMoviesHomeclass"
                                 :src="movie.imagen2"

@@ -6,44 +6,27 @@
 		
 		<span class="text-notifications">Notificaciones</span>
 
-			<!--	<span class="notifications-badge">1</span> -->
+				<span class="notifications-badge">{{arrayNotificaciones.length}}</span> 
 		
 		<div class="menu left transition hidden" tabindex="-1" :class="{'visible op fade-in ' : perfilMenu == 1}">
 
-			<!-- notificaciones
-            <div class="scroll-wrapper scrollbar-macosx" style="position: relative;"><div id="scroll-notifications" class="scrollbar-macosx scroll-content" style="height: 298.333px; margin-bottom: 0px; margin-right: 0px; max-height: none;">
+			 
+            <div class="scroll-wrapper scrollbar-macosx" 
+            style="position: relative;" v-if="mostrarNotify">
+            <div id="scroll-notifications"
+             class="scrollbar-macosx scroll-content" style="height: 200px; margin-bottom: 0px; margin-right: 0px; max-height: none;">
 				
-				<div class="item active" data-notification="2028797">
-					<a href="dizi/the-haunting-of-bly-manor#650329">
-						<img src="uploads/users/15d125f55dd865.jpg" alt="⋆ｉｖｉ, The Haunting of Bly Manor için yazdığın yorumu beğendi.">
+				<div class="item active" v-for="(item, index) in arrayNotificaciones" :key="index" >
+					<a :href="'/'+item.link" @click.prevent="pasarLeido(item.id, item.link)">
+						<img :src="item.imagen" :alt="item.mensaje">
 						<div class="notification-text">
-							<h4><strong>⋆ｉｖｉ,</strong> The Haunting of Bly Manor <span>için yazdığın yorumu beğendi.</span></h4>
-							<p>1 gün önce</p>
+							<h4>{{item.mensaje}}</h4>
+							<p>{{item.fecha}}</p>
 						</div>
 					</a>
 				</div>
 
 				
-				<div class="item active" data-notification="1866053">
-					<a href="">
-						<img src="assets/img/star.png" alt="Tebrikler 3. seviyeye ulaştın.">
-						<div class="notification-text">
-							<h4>Tebrikler <strong>3.</strong> seviyeye ulaştın.</h4>
-							<p>1 ay önce</p>
-						</div>
-					</a>
-				</div>
-
-				
-				<div class="item active" data-notification="1855438">
-					<a href="dizi/the-haunting-of-bly-manor#650329">
-						<img src="uploads/users/15f4e592b952b2.jpg" alt="ṨTʀᴀɴɢᴇʀT̲ʜɪɴɢꜱ F͎a͎n͎™ ⏳, The Haunting of Bly Manor için yazdığın yorumu beğendi.">
-						<div class="notification-text">
-							<h4><strong>ṨTʀᴀɴɢᴇʀT̲ʜɪɴɢꜱ F͎a͎n͎™ ⏳,</strong> The Haunting of Bly Manor <span>için yazdığın yorumu beğendi.</span>...</h4>
-							<p>1 ay önce</p>
-						</div>
-					</a>
-				</div>
 
 				
 			</div><div class="scroll-element scroll-x"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar"></div></div></div><div class="scroll-element scroll-y"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar"></div></div></div>
@@ -51,16 +34,16 @@
             </div>
 
 
-            -->
-            <div class="scroll-wrapper scrollbar-macosx" style="position: relative;"><div id="scroll-notifications" class="scrollbar-macosx scroll-content scroll-scrollx_visible" style="height: 38.8889px; margin-bottom: 0px; margin-right: 0px; max-height: none;">
+            
+            <div class="scroll-wrapper scrollbar-macosx" v-else style="position: relative;"><div id="scroll-notifications" class="scrollbar-macosx scroll-content scroll-scrollx_visible" style="height: 38.8889px; margin-bottom: 0px; margin-right: 0px; max-height: none;">
 								<div class="item active selected">
 					<div class="notification-text">
-						<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" class="">Sin notificaciones</font></font></h5>
+						<h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" class="">Sin notificaciones nuevas</font></font></h5>
 					</div>
 				</div>
 				
 			</div><div class="scroll-element scroll-x scroll-scrollx_visible"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar" style="left: 0px;"></div></div></div><div class="scroll-element scroll-y scroll-scrollx_visible"><div class="scroll-element_outer"><div class="scroll-element_size"></div><div class="scroll-element_track"></div><div class="scroll-bar"></div></div></div></div>
-			<a href="https://yabancidizi.pw/bildirimler" class="item">Ver Todas</a>
+			<nuxt-link to="/notificaciones" class="item">Ver Todas</nuxt-link>
 
 		</div>
 
@@ -71,18 +54,50 @@
 
 <script>
 import ClickOutside from 'vue-click-outside'
+import { mapState } from "vuex";
 export default {
   name: 'DropdownPerfilNotify',
-  
+  props: ["id_user"],
    data (){
         return {
            perfilMenu: 0,
+           arrayNotificaciones: [], 
+           mostrarNotify: false
         }
     },
+    computed: {
+    ...mapState(["urlProcesos"]),
+  },
     components: {
     
   },
     methods: {
+      async pasarLeido(id, link){
+        console.log("di clic")
+ await fetch(
+          this.urlProcesos +
+            "wp-json/notificaciones/get/?q=lei&id_user="+this.id_user+"&id_notify="+id  )
+          .then((r) => r.json())
+          .then((res) => {
+   //        this.$router.replace({path: link})
+                          window.location.href = this.$store.state.urlBase + link
+          });
+      },
+
+    async getNotificaciones(){
+  
+         await fetch(
+          this.urlProcesos +
+            "wp-json/notificaciones/get/?q=get&id_user="+this.id_user  )
+          .then((r) => r.json())
+          .then((res) => {
+             if(res.length > 0){
+                this.arrayNotificaciones = res
+                this.mostrarNotify = true
+              }
+               
+          });
+      },
         perfilMenuUser(){
             if(this.perfilMenu == 0){
                     this.perfilMenu = 1
@@ -100,8 +115,9 @@ export default {
     ClickOutside
   }, 
     mounted() {
-        var arrayl = this.$store.state.arraySession
-	//	console.log(arrayl.length)
+      
+
+  this.getNotificaciones()
 		
 	},
 	

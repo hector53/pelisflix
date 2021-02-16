@@ -25,7 +25,7 @@
     </div>
     <div class="ui grid">
         <div class="left floated sixteen wide tablet eight wide computer column">
-                 <nuxt-link @click.native="$store.commit('scrollToTop')"
+                 <nuxt-link 
                          :to="{ name: 'peliculas-slug', params: {slug: $route.params.slug} }">
             
                 <h1 class="page-title">{{movieTitle}}</h1>
@@ -185,7 +185,7 @@ const Toast = this.$swal.mixin({
                             }else{
                                 this.textSeguir = 'Siguiendo'
                             }
- this.$store.state.skeleton = 1
+                     this.$store.commit('setSkeleton', 1);
                     }
                     );
            }, 

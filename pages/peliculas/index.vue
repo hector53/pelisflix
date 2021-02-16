@@ -90,6 +90,25 @@ import dropdown from '@/node_modules/vue-dropdowns/Dropdown.vue';
 
 export default {
   name: 'VerPeliculas',
+  head(){
+    return {
+      title: this.$store.state.titleHome,
+            meta: [
+                { name: 'description', content:  this.$store.state.descripcionHome},
+                { property: 'og:locale', content: 'es_ES'},
+                { property: 'og:title', content: this.$store.state.titleHome},
+                { property: 'og:site_name', content: this.$store.state.siteName},
+                {property: 'og:type', content: 'website'},    
+                {property: 'og:url', content: this.$store.state.siteUrl},   
+                { name: 'twitter:card', content:  'summary_large_image'}, 
+                {name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'} 
+            ], 
+            link: [
+      { rel: 'canonical', href: this.$store.state.siteUrl }, 
+      
+    ]
+    }
+  }, 
    data (){
         return {
           totalPaginas: 0, 
@@ -216,9 +235,7 @@ export default {
            if(Order == undefined){
              Order = "null"
            }
-           console.log(this.urlProcesos +
-          "wp-json/peliculas/ver/post/"+"?xPag="+this.registrosxPag+"&ini="+this.ini+"&fin="+this.fin
-          +"&Order="+Order)
+         
             await fetch(this.urlProcesos +
           "wp-json/peliculas/ver/post/"+"?xPag="+this.registrosxPag+"&ini="+this.ini+"&fin="+this.fin
           +"&Order="+Order)
@@ -286,6 +303,7 @@ export default {
   mounted() {
       this.$store.commit('setSkeleton', 0);
 	 this.getVerPeliculas()
+   this.getSeo()
     },
     created(){
      

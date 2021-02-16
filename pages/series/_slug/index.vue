@@ -43,8 +43,8 @@
                     <font style="vertical-align: inherit;">Visión de conjunto</font>
                 </font>
             </a>
-             <nuxt-link @click="$store.commit('scrollToTop')" class="item" 
-				:to="{name:'ForoVerSeccion', params: {foro_slug: $route.params.slug} }">
+             <nuxt-link class="item" 
+				:to="{name:'foro-foro_slug', params: {foro_slug: $route.params.slug} }">
            
                 <font style="vertical-align: inherit;">
                     <font style="vertical-align: inherit;">Foros de discusión</font>
@@ -325,7 +325,7 @@
                             </div> <!-- // .ui grid -->
                         </section> <!-- // .episodes-box -->
                        
-                       <ComentariosFlix  :post_id="post_id" :id_user="id_user" :userName="userName" />
+                       <ComentariosFlix :serieCap="0"  :post_id="post_id" :id_user="id_user" :userName="userName" />
 
                     </div> <!-- // .eleven .wide .column -->
 
@@ -351,6 +351,7 @@
 
 <script>
 import Cookies from "js-cookie";
+import axios from 'axios'
 // @ is an alias to /src
 import {mapState} from 'vuex'
 import BreadCrumbsSeries from '@/components/SeriesDetails/BreadCrumbsSeries.vue'
@@ -358,6 +359,38 @@ import ComentariosFlix from '@/components/Comentarios/ComentariosFlix.vue'
 import ActoresSeries from '@/components/SeriesDetails/ActoresSeries.vue'
 export default {
   name: 'SeriesDetails',
+   async asyncData({ params, store }) {
+    // We can use async/await ES6 feature
+    const postMovies = await axios.get(
+      `${store.state.urlProcesos}wp-json/series/detalle_slug/post/?slug=${params.slug}`
+    );
+
+     const seoDetails = await axios.get(
+      `${store.state.urlProcesos}wp-json/wp/v2/serie/${postMovies.data[0].id}`
+    );
+    console.log(seoDetails.data)
+
+    const metaArray = [];
+      seoDetails.data.yoast_meta.map(ele => {
+        metaArray.push({
+         hid: ele.name ? ele.name : ele.property,
+          name: ele.name ? ele.name : ele.property,
+          content: ele.content,
+        });
+      });
+
+    return { MoviesDetailsasync: postMovies.data, SeoPost: metaArray };
+  },
+    head(){
+    return {
+      title: this.MoviesDetailsasync[0].titulo+' - Pelisflix',
+            meta: this.SeoPost, 
+            link: [
+      { rel: 'canonical', href: this.$store.state.siteUrl }, 
+      
+    ]
+    }
+  },
    data (){
         return {
           
@@ -377,8 +410,7 @@ export default {
             await fetch(this.urlProcesos+'wp-json/series/detalle_slug/post/?slug='+this.$route.params.slug)
                     .then((r) => r.json())
                     .then((res) => {
-                        this.SeriesDetails = res
-                            this.post_id = res[0].id 
+                      
                      //  this.$store.state.skeleton = 1
                     }
                     );
@@ -418,7 +450,8 @@ BreadCrumbsSeries, ComentariosFlix, Cookies, ActoresSeries
     this.id_user = co.user_id; 
     this.userName = co.user_login
         }
-           this.SeriesGetDetails();
+        this.SeriesDetails = this.MoviesDetailsasync
+         this.post_id = this.MoviesDetailsasync[0].id
     },
     created() {
 //   console.log(this.$route)
