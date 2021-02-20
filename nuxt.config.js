@@ -1,12 +1,9 @@
 
 module.exports = {
   target: 'server',
-  /*
-  ** Headers of the page
-  */
-/* router: {
-  base: '/pelisflixnuxt/'
-},*/
+  
+  
+
   head: {
    
     title: 'PelisFlix',
@@ -53,7 +50,7 @@ module.exports = {
     '@nuxtjs/axios', 
     'vue-sweetalert2/nuxt',
     'vue-scrollto/nuxt',
-
+    '@pi0/nuxt-cache'
   ], 
 
   plugins: [
