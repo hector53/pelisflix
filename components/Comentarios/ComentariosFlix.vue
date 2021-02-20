@@ -236,17 +236,7 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
 
 
  var textoReply = document.getElementById("replyText_"+id)
- console.log(this.urlProcesos +
-            "wp-json/comentarios/add/post/?q=addR&id_post=" +
-            this.post_id +
-            "&id_user=" +
-            this.id_user +
-            "&username=" +
-            this.userName +
-            "&content=" +
-            contenido+
-            "&id_comment="+id+
-            "&serieCap="+this.serieCap)
+
  await fetch(
           this.urlProcesos +
             "wp-json/comentarios/add/post/?q=addR&id_post=" +
@@ -281,7 +271,6 @@ this.$nuxt.$children[2].$refs.HeaderMovies.loginOpen()
 }
    //   console.log(this.$refs.emoji);
      
-console.log(this.userName)
       if (this.textoComentario.length > 0) {
          this.loadingComment = true;
       const editor = this.$el.querySelector(".emoji-wysiwyg-editor");
@@ -333,7 +322,6 @@ console.log(this.userName)
   },
   mounted() {
 
-console.log(this.userName)
     this.getCommentsPost();
   },
   components: {

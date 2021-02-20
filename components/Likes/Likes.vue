@@ -52,7 +52,6 @@ export default {
  vm.$children[0].$refs.HeaderMovies.loginOpen()
  return false
 }
-            console.log("like UP")
             this.disableBtn = true
 
                fetch(
@@ -86,7 +85,6 @@ export default {
  vm.$children[0].$refs.HeaderMovies.loginOpen()
  return false
 }
-            console.log("like Down")
             this.disableBtn = true
 
                fetch(
@@ -122,7 +120,6 @@ export default {
             this.id_user + "&id_post=" + this.post_id )
           .then((r) => r.json())
           .then((res) => {
-              console.log(res)
              this.likesUps = res[0].likesUps
             this.likesDowns = res[0].likesDowns
             if(res[0].userLikeUp > 0){

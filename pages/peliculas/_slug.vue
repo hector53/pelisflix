@@ -155,6 +155,7 @@ export default {
     }
   },
    async asyncData({ params, store }) {
+       
     // We can use async/await ES6 feature
     const postMovies = await axios.get(
       `${store.state.urlProcesos}wp-json/peliculas/detalle_slug/post/?slug=${params.slug}`
@@ -163,7 +164,7 @@ export default {
      const seoDetails = await axios.get(
       `${store.state.urlProcesos}wp-json/wp/v2/movie/${postMovies.data[0].id}`
     );
-    console.log(seoDetails.data)
+    
 
     const metaArray = [];
       seoDetails.data.yoast_meta.map(ele => {
@@ -173,7 +174,7 @@ export default {
           content: ele.content,
         });
       });
-
+metaArray[4].content = metaArray[4].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
     return { MoviesDetailsasync: postMovies.data, SeoPost: metaArray };
   },
    data (){
@@ -218,7 +219,6 @@ export default {
 BreadCrumbsMovies, ReproductoresMovies, Likes, ActoresMovies, ComentariosFlix, Cookies
          }, 
   mounted() {
-      console.log(this.MoviesDetailsasync)
        var co = Cookies.get("user_session"); 
         if(co != undefined)
         {

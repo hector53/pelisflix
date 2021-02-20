@@ -14,6 +14,7 @@ export const state = () => ({
     dropdownHeader: false, 
     opa: false, 
     siteName: 'Pelisflix',
+    siteUrlSeo: 'beta.pelisflix.com',
     siteUrl: 'https://beta.pelisflix.com/',
     titleHome: 'Pelisflix ▷ Ver Peliculas y Series Online Gratis Completas HD',
     descripcionHome: 'En ✅ Pelisflix ✅ puedes ver peliculas y series online gratis HD en Español, Latino y Subtitulado. Ver Estrenos, Episodios y Temporadas Completas en HD.'

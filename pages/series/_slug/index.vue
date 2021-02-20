@@ -359,7 +359,8 @@ import ComentariosFlix from '@/components/Comentarios/ComentariosFlix.vue'
 import ActoresSeries from '@/components/SeriesDetails/ActoresSeries.vue'
 export default {
   name: 'SeriesDetails',
-   async asyncData({ params, store }) {
+   async asyncData({ params, store, context}) {
+       
     // We can use async/await ES6 feature
     const postMovies = await axios.get(
       `${store.state.urlProcesos}wp-json/series/detalle_slug/post/?slug=${params.slug}`
@@ -368,7 +369,6 @@ export default {
      const seoDetails = await axios.get(
       `${store.state.urlProcesos}wp-json/wp/v2/serie/${postMovies.data[0].id}`
     );
-    console.log(seoDetails.data)
 
     const metaArray = [];
       seoDetails.data.yoast_meta.map(ele => {
@@ -378,7 +378,7 @@ export default {
           content: ele.content,
         });
       });
-
+metaArray[4].content = metaArray[4].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
     return { MoviesDetailsasync: postMovies.data, SeoPost: metaArray };
   },
     head(){
@@ -406,7 +406,6 @@ export default {
     },
     methods: {
         async SeriesGetDetails(){
-            console.log(this.urlProcesos+'wp-json/series/detalle_slug/post/?slug='+this.$route.params.slug)
             await fetch(this.urlProcesos+'wp-json/series/detalle_slug/post/?slug='+this.$route.params.slug)
                     .then((r) => r.json())
                     .then((res) => {

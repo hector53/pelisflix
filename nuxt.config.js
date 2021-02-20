@@ -1,6 +1,6 @@
 
 module.exports = {
-  target: 'static',
+  target: 'server',
   /*
   ** Headers of the page
   */
