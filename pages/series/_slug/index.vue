@@ -361,17 +361,14 @@ export default {
   name: 'SeriesDetails',
    async asyncData({ params, store, context}) {
        
-    // We can use async/await ES6 feature
-    const postMovies = await axios.get(
-      `${store.state.urlProcesos}wp-json/series/detalle_slug/post/?slug=${params.slug}`
-    );
+  
 
      const seoDetails = await axios.get(
-      `${store.state.urlProcesos}wp-json/wp/v2/serie/${postMovies.data[0].id}`
+      `${store.state.urlProcesos}wp-json/wp/v2/serie/?slug=${params.slug}`
     );
-
+console.log(seoDetails.data[0])
     const metaArray = [];
-      seoDetails.data.yoast_meta.map(ele => {
+      seoDetails.data[0].yoast_meta.map(ele => {
         metaArray.push({
          hid: ele.name ? ele.name : ele.property,
           name: ele.name ? ele.name : ele.property,
@@ -379,11 +376,12 @@ export default {
         });
       });
 metaArray[4].content = metaArray[4].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
-    return { MoviesDetailsasync: postMovies.data, SeoPost: metaArray };
+var tituloSeo = metaArray[3].content
+    return {  SeoPost: metaArray, tituloSeo: tituloSeo };
   },
     head(){
     return {
-      title: this.MoviesDetailsasync[0].titulo+' - Pelisflix',
+        title: this.tituloSeo,
             meta: this.SeoPost, 
             link: [
       { rel: 'canonical', href: this.$store.state.siteUrl }, 
@@ -409,8 +407,11 @@ metaArray[4].content = metaArray[4].content.replace("api.pelisflix.com", store.s
             await fetch(this.urlProcesos+'wp-json/series/detalle_slug/post/?slug='+this.$route.params.slug)
                     .then((r) => r.json())
                     .then((res) => {
-                      
-                     //  this.$store.state.skeleton = 1
+                      console.log(res)
+                  //  this.SeriesDetails = res
+
+                  this.SeriesDetails = res
+                   this.post_id = res.id
                     }
                     );
            }, 
@@ -449,11 +450,11 @@ BreadCrumbsSeries, ComentariosFlix, Cookies, ActoresSeries
     this.id_user = co.user_id; 
     this.userName = co.user_login
         }
-        this.SeriesDetails = this.MoviesDetailsasync
-         this.post_id = this.MoviesDetailsasync[0].id
+        
     },
     created() {
 //   console.log(this.$route)
+this.SeriesGetDetails()
      
     },
 
