@@ -13,15 +13,16 @@ module.exports = {
     ],
   
     link: [
+       { rel: 'preload', href: 'https://beta.pelisflix.com/fonts/bernino/bernino_sans_semibold-webfont.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+      { rel: 'preload', href: 'https://beta.pelisflix.com/fonts/bernino/bernino_sans_regular-webfont.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+    
       { rel: 'icon', href: '/favicon.png' }, 
-      { rel: 'stylesheet', href: '/css/swiper.css' },
+      { rel: 'stylesheet', href: '/css/swiper.css',  },
       { rel: 'stylesheet', href: '/css/main.css' },
       { rel: 'stylesheet', href: '/css/yds.min.css' },
       { rel: 'stylesheet', href: '/css/yds-theme.min.css' },
       { rel: 'stylesheet', href: '/css/icon.min.css' },
-      { rel: 'preload', href: 'https://beta.pelisflix.com/fonts/bernino/bernino_sans_semibold-webfont.woff2' },
-      { rel: 'preload', href: 'https://beta.pelisflix.com/fonts/bernino/bernino_sans_regular-webfont.woff2' },
-    
+     
     ]
   },
 
@@ -53,12 +54,11 @@ module.exports = {
     '@nuxtjs/axios', 
     'vue-sweetalert2/nuxt',
     'vue-scrollto/nuxt',
-    'nuxt-ssr-cache',
+   
    
   ], 
   cache: {
  
-    useHostPrefix: false,
     pages: [
      
       '/'
