@@ -7,8 +7,8 @@
 
         <div class="series-genres">
             <span class="series-status aqua">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">En Emisión</font>
+                <font >
+                    <font >En Emisión</font>
                 </font>
             </span>
         </div>
@@ -20,12 +20,12 @@
                     :to="{ name: 'series-slug', params: {slug: $route.params.slug} }">
 
                     <h1 class="page-title">
-                        <font style="vertical-align: inherit;">
-                            <font class="" style="vertical-align: inherit;">{{movie.titulo}}</font>
+                        <font >
+                            <font class="" >{{movie.titulo}}</font>
                         </font>
                         <span class="light-title">
-                            <font style="vertical-align: inherit;">
-                                <font class="" style="vertical-align: inherit;">({{movie.year}}) </font>
+                            <font >
+                                <font class="" >({{movie.year}}) </font>
                             </font>
                         </span>
 
@@ -39,20 +39,20 @@
 
         <div id="series-tabs" class="ui pointing secondary menu">
             <a class="item active" data-tab="first">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Visión de conjunto</font>
+                <font >
+                    <font >Visión de conjunto</font>
                 </font>
             </a>
              <nuxt-link class="item" 
 				:to="{name:'foro-foro_slug', params: {foro_slug: $route.params.slug} }">
            
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Foros de discusión</font>
+                <font >
+                    <font >Foros de discusión</font>
                 </font>
             </nuxt-link>
             <a class="item disabled">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Compartir</font>
+                <font >
+                    <font >Compartir</font>
                 </font>
             </a>
         </div>
@@ -70,12 +70,12 @@
                         <article class="series-summary">
                             <div class="series-summary-wrapper">
                                 <h2 class="section-heading">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Sinopsis</font>
+                                    <font >
+                                        <font >Sinopsis</font>
                                     </font>
                                 </h2>
                                 <p id="tv-series-desc">
-                                    <font style="vertical-align: inherit;" v-html="movie.sinopsis">
+                                    <font  v-html="movie.sinopsis">
                                      
                                     </font>
                                 </p>
@@ -100,48 +100,48 @@
                                         <tr>
                                             <td>
                                                 <div>
-                                                    <font style="vertical-align: inherit;">
-                                                        <font style="vertical-align: inherit;">País</font>
+                                                    <font >
+                                                        <font >País</font>
                                                     </font>
                                                 </div>
                                                 <div>
-                                                    <font style="vertical-align: inherit;">
-                                                        <font style="vertical-align: inherit;">{{movie.pais}}</font>
-                                                    </font>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <font style="vertical-align: inherit;">
-                                                        <font style="vertical-align: inherit;">Duración</font>
-                                                    </font>
-                                                </div>
-                                                <div>
-                                                    <font style="vertical-align: inherit;">
-                                                        <font style="vertical-align: inherit;">{{movie.time}} min</font>
+                                                    <font >
+                                                        <font >{{movie.pais}}</font>
                                                     </font>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div>
-                                                    <font style="vertical-align: inherit;">
-                                                        <font style="vertical-align: inherit;">Seguidores</font>
+                                                    <font >
+                                                        <font >Duración</font>
+                                                    </font>
+                                                </div>
+                                                <div>
+                                                    <font >
+                                                        <font >{{movie.time}} min</font>
+                                                    </font>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <font >
+                                                        <font >Seguidores</font>
                                                     </font>
                                                 </div>
                                                 <div>0</div>
                                             </td>
                                             <td>
                                                 <div>
-                                                    <font style="vertical-align: inherit;">
-                                                        <font style="vertical-align: inherit;">IMDB</font>
+                                                    <font >
+                                                        <font >IMDB</font>
                                                     </font>
                                                 </div>
                                                 <div class="color-imdb">{{movie.imdb}}</div>
                                             </td>
                                             <td>
                                                 <div>
-                                                    <font style="vertical-align: inherit;">
-                                                        <font style="vertical-align: inherit;">Año
+                                                    <font >
+                                                        <font >Año
                                                         </font>
                                                     </font>
                                                 </div>
@@ -154,13 +154,13 @@
                             <div class="first_and_last">
                                 <a id="first_episode" title="Ver Star Trek: Discovery Temporada 1 Episodio 1"
                                     :href="movie.slugcap1" >
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
+                                    <font >
+                                        <font >
                                             Ver el primer capítulo de la serie
                                         </font>
                                     </font><small>
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">Temporada 1 Capítulo 1</font>
+                                        <font >
+                                            <font >Temporada 1 Capítulo 1</font>
                                         </font>
                                     </small>
                                     <div class="icon-to-episode">
@@ -171,13 +171,13 @@
                                 </a>
                                 <a id="last_episode" title="Mira Star Trek: Discovery temporada 3 episodio 2"
                                     :href="movie.slugcapfinal" data-navigo="">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
+                                    <font >
+                                        <font >
                                             Mira el último episodio de la serie
                                         </font>
                                     </font><small>
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">Temporada 3 Episodio 2</font>
+                                        <font >
+                                            <font >Temporada 3 Episodio 2</font>
                                         </font>
                                     </small>
                                     <div class="icon-to-episode">
@@ -199,23 +199,23 @@
                                         </div>
                                         <div class="content">
                                             <div class="header">
-                                                <font style="vertical-align: inherit;">
-                                                    <font style="vertical-align: inherit;">Trailer</font>
+                                                <font >
+                                                    <font >Trailer</font>
                                                 </font>
                                             </div>
                                             <div class="meta">
-                                                <font style="vertical-align: inherit;">
-                                                    <font style="vertical-align: inherit;">ADELANTO OFICIAL</font>
+                                                <font >
+                                                    <font >ADELANTO OFICIAL</font>
                                                 </font>
                                             </div>
                                             <div class="extra">
-                                                <font style="vertical-align: inherit;">
-                                                    <font style="vertical-align: inherit;">Mira el tráiler de {{movie.titulo}}</font>
+                                                <font >
+                                                    <font >Mira el tráiler de {{movie.titulo}}</font>
                                                 </font>
                                             </div>
                                             <div class="media-count">
-                                                <font style="vertical-align: inherit;">
-                                                    <font style="vertical-align: inherit;">{{movie.year}}</font>
+                                                <font >
+                                                    <font >{{movie.year}}</font>
                                                 </font>
                                             </div>
                                         </div>
@@ -238,13 +238,13 @@
                     
 
                         <h4 class="sidebar-heading" id="season-episode-list-title">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">{{movie.titulo}} - </font>
+                            <font >
+                                <font >{{movie.titulo}} - </font>
                             </font><span>
                                
                             </span>
-                            <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">Temporada 1</font>
+                            <font >
+                            <font >Temporada 1</font>
                              
                             </font>
                         </h4>
@@ -257,7 +257,7 @@
                                     
                                         <a :href="movie.slug + '/temporada/'+index" v-for="index in parseInt(movie.temporadas)" :key="index"
                                         class="item" :class="{'active': index == tabTemp}" style="padding: 15px;" @click.prevent="changeTabTemp(index)" >
-                                            <font style="vertical-align: inherit;">
+                                            <font >
                                                 <font style="vertical-align: inherit;     font-size: 10px!important;">Temporada {{index}}</font>
                                             </font>
                                         </a>
@@ -283,9 +283,9 @@
                                                                         <nuxt-link 
                                                                          :to="{ name: 'series-slug-temporada-id_temp-capitulo-id_cap', 
                                                                          params: {slug: movie.slugsolo, id_temp: tabTemp, id_cap: index+1 } }">
-                                                                                <font style="vertical-align: inherit;">
+                                                                                <font >
                                                                                     <font
-                                                                                        style="vertical-align: inherit;">
+                                                                                        >
                                                                                         Capítulo {{index+1}} </font>
                                                                                 </font>
                                                                             </nuxt-link>
@@ -298,9 +298,9 @@
                                                                         :to="{ name: 'series-slug-temporada-id_temp-capitulo-id_cap', 
                                                                         params: {slug: movie.slugsolo, id_temp: tabTemp, id_cap: index+1 } }">
                                                                              
-                                                                                <font style="vertical-align: inherit;">
+                                                                                <font >
                                                                                     <font
-                                                                                        style="vertical-align: inherit;">
+                                                                                        >
                                                                                         {{capi.titulo}}
                                                                                         </font>
                                                                                 </font>
@@ -336,8 +336,8 @@
         </div> <!-- // .tab -->
 
         <div class="ui tab tab-segment" data-tab="second">
-            <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">
+            <font >
+                <font >
                     Segunda pestaña
                 </font>
             </font>
@@ -407,11 +407,12 @@ var tituloSeo = metaArray[3].content
             await fetch(this.urlProcesos+'wp-json/series/detalle_slug/post/?slug='+this.$route.params.slug)
                     .then((r) => r.json())
                     .then((res) => {
-                      console.log(res)
+                  //    console.log(res)
+//console.log("id: ",res[0].id)
                   //  this.SeriesDetails = res
 
                   this.SeriesDetails = res
-                   this.post_id = res.id
+                   this.post_id = res[0].id
                     }
                     );
            }, 
