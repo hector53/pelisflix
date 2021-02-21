@@ -32282,21 +32282,21 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
 
 .alert-feature {
     color: #fff;
-    background: #182643 url(../img/alert-feature-bg.png?v4) center right no-repeat;
+    background: #182643 url(../~static/img/alert-feature-bg.png?v4) center right no-repeat;
     background-size: 50%;
     padding-right: 50%
 }
 
 .alert-site-feature {
     color: #fff;
-    background: #311843 url(../img/alert-site-feature.png) center right no-repeat;
+    background: #311843 url(../~static/img/alert-site-feature.png) center right no-repeat;
     background-size: 45%;
     padding-right: 50%
 }
 
 .alert-site-requests {
     color: #fff;
-    background: #421843 url(../img/alert-site-requests.png) center right no-repeat;
+    background: #421843 url(../~static/img/alert-site-requests.png) center right no-repeat;
     background-size: 40%;
     padding-right: 50%
 }
@@ -32863,7 +32863,7 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
 }
 
 .register-cta {
-    background: url(../img/cta-shapes.png) center center repeat, linear-gradient(45deg, #8800CD 0%, #00D2FA 100%);
+    background: url(../~static/img/cta-shapes.png) center center repeat, linear-gradient(45deg, #8800CD 0%, #00D2FA 100%);
     background-size: cover, auto;
     border-radius: 3px;
     padding: 30px 32px 30px 133px;
@@ -34350,7 +34350,6 @@ clearfix::before {
 
 .next-ep-holder:before {
     content: "";
-    background-image: radial-gradient(50% 150%, rgba(0, 0, 0, .75) 50%, #000 100%);
     position: absolute;
     top: 0;
     left: 0;
@@ -34599,7 +34598,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
 .onboarding .logo {
     width: 100%;
     height: 28px;
-   /* background: url(../img/logo.svg) no-repeat; 
+   /* background: url(../~static/img/logo.svg) no-repeat; 
     background-size: 159px 28px; */
     text-indent: -9999px;
     margin-bottom: 4rem
@@ -35474,7 +35473,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
     text-align: left;
     font-size: 13px;
     font-weight: 500;
-    background-image: url(../img/symbol_yd.svg);
+    background-image: url(~static/img/symbol_yd.svg);
     background-repeat: no-repeat;
     background-position: 42px 4px;
     background-size: 28%;
@@ -35553,7 +35552,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
     display: block;
     width: 100%;
     height: 75px;
-    background: url(../img/logoflix.png) center no-repeat;
+    background: url(~static/img/logoflix.png) center no-repeat;
     background-size: 160px 32px;
     text-indent: -999px
 }
@@ -36397,7 +36396,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
 }
 
 .footer {
-    background: #14161d url(../img/footer-backdrop.png) top right no-repeat;
+    background: #14161d url(~static/img/footer-backdrop.png) top right no-repeat;
     background: #14161d;
     background-size: cover;
     border-top: 1px solid #1e2029;
@@ -36412,7 +36411,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
     display: block;
     width: 159px;
     height: 28px;
-  /*  background: url(../img/logo.svg) 0 0 no-repeat;
+  /*  background: url(../~static/img/logo.svg) 0 0 no-repeat;
     background-size: cover;*/
     text-indent: -9999px
 }
@@ -37462,7 +37461,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
 }
 
 .login-page {
-    background: #14161d url(../img/base.png) no-repeat;
+    background: #14161d url(~static/img/base.png) no-repeat;
     background-size: cover;
     display: flex
 }
@@ -37482,7 +37481,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
     display: block;
     width: 100%;
     height: 50px;
-    background: url(../img/logo_beta.svg) center no-repeat;
+    background: url(../~static/img/logo_beta.svg) center no-repeat;
     background-size: 215px 50px;
     text-indent: -99999em
 }
@@ -37859,41 +37858,41 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
 }
 
 .mofylag.tr {
-    background-image: url(../img/tr-32.svg);
+    background-image: url(../~static/img/tr-32.svg);
     background-position: center
 }
 
 .mofylag.en {
     background-color: #121212;
-    background-image: url(../img/subtitle.svg?v11);
+    background-image: url(../~static/img/subtitle.svg?v11);
     background-position: center
 }
 
 .mofylag.en.grey {
-    background-image: url(../img/subtitle_grey.svg?v5);
+    background-image: url(../~static/img/subtitle_grey.svg?v5);
     background-position: center
 }
 
 .mofylag.us {
     background-color: #121212;
-    background-image: url(../img/us.svg?v11);
+    background-image: url(../~static/img/us.svg?v11);
     background-position: center
 }
 
 .mofylag.us.grey {
-    background-image: url(../img/us.svg?v5);
+    background-image: url(../~static/img/us.svg?v5);
     background-position: center
 }
 
 .mofylag.no {
     background-color: transparent;
-    background-image: url(../img/no_subtitle.svg?v10);
+    background-image: url(../~static/img/no_subtitle.svg?v10);
     background-position: center
 }
 
 .mofylag.no.grey {
     background-color: transparent;
-    background-image: url(../img/no_subtitle_grey.svg?v2);
+    background-image: url(../~static/img/no_subtitle_grey.svg?v2);
     background-position: center
 }
 
@@ -38309,7 +38308,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
     color: #fff;
     letter-spacing: -2px;
     text-align: center;
-/*    background: url(/mofy/img/waiting.svg) center top no-repeat;*/
+/*    background: url(/mofy/~static/img/waiting.svg) center top no-repeat;*/
     padding-top: 85px
 }
 
@@ -39230,7 +39229,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
     text-align: left;
     font-size: 13px;
     font-weight: 500;
-    background-image: url(../img/symbol_yd.svg);
+    background-image: url(../~static/img/symbol_yd.svg);
     background-repeat: no-repeat;
     background-position: 60px center;
     background-size: 25%;
@@ -39855,14 +39854,15 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
         background-color: #1e2029;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
-        border-radius: 5px
+        border-radius: 5px;
+        align-items: flex-start
     }
 
     .collection-wrapper .collection-details .author {
         margin-bottom: 0;
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center
     }
 
@@ -39878,7 +39878,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
     .collection-wrapper .collection-details>div {
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center
     }
 
