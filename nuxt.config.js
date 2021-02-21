@@ -1,12 +1,9 @@
 
 module.exports = {
   target: 'server',
-  /*
-  ** Headers of the page
-  */
-/* router: {
-  base: '/pelisflixnuxt/'
-},*/
+  
+  version: 0.1,
+
   head: {
    
     title: 'PelisFlix',
@@ -53,9 +50,31 @@ module.exports = {
     '@nuxtjs/axios', 
     'vue-sweetalert2/nuxt',
     'vue-scrollto/nuxt',
-
+    'nuxt-ssr-cache',
+   
   ], 
-
+  cache: {
+ 
+    useHostPrefix: false,
+    pages: [
+     
+      '/'
+    ],
+    
+    store: {
+    
+      type: 'memory',
+ 
+      // maximum number of pages to store in memory
+      // if limit is reached, least recently used page
+      // is removed.
+      max: 100,
+ 
+      // number of seconds to store this page in cache
+      ttl: 60,
+      
+    },
+  },
   plugins: [
     { src: '~/plugins/VuSkeletonLoading.js', mode: 'client' }, // only on client side
     { src: '~/plugins/Vunotification.js', mode: 'client' }, // only on client side
