@@ -19,6 +19,9 @@ module.exports = {
       { rel: 'stylesheet', href: '/css/yds.min.css' },
       { rel: 'stylesheet', href: '/css/yds-theme.min.css' },
       { rel: 'stylesheet', href: '/css/icon.min.css' },
+      { rel: 'preload', href: 'https://beta.pelisflix.com/fonts/bernino/bernino_sans_semibold-webfont.woff2' },
+      { rel: 'preload', href: 'https://beta.pelisflix.com/fonts/bernino/bernino_sans_regular-webfont.woff2' },
+    
     ]
   },
 
