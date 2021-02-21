@@ -19,6 +19,7 @@
     "emoji-vue": "^0.2.4",
     "js-cookie": "^2.2.1",
     "nuxt": "^2.0.0",
+    "nuxt-perfect-cache": "^1.0.8",
     "nuxt-ssr-cache": "^1.5.2",
     "nuxt-sweetalert2": "^1.0.0",
     "swiper": "^6.4.11",

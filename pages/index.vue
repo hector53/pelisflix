@@ -52,7 +52,7 @@ import SeriesHomeRanking from '@/components/MoviesHome/SeriesHomeRanking.vue'
 import ColeccionesMasVistas from '@/components/Colecciones/ColeccionesMasVistas.vue'
 
 export default {
-  cache: true,
+  
   name: 'Home',
   head(){
     return {
