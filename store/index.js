@@ -8,7 +8,7 @@ export const state = () => ({
     DesImdbE: 0, 
     DesGenSerie: "", 
     DesPais: "", 
-    s: "serie", 
+    s: "pelicula", 
     sessionCookie: false, 
     arraySession: {}, 
     dropdownHeader: false, 
@@ -31,6 +31,37 @@ export const state = () => ({
     setSkeleton(state, val){
       state.skeleton = val;
     }, 
+    setS(state, val){
+      state.s = val;
+    },
+    setDesYearI(state, val){
+      state.DesYearI = val;
+    }, 
+    setDesYearE(state, val){
+      state.DesYearE = val;
+    }, 
+    setDesImdbI(state, val){
+      state.DesImdbE = val;
+    },
+    setDesImdbE(state, val){
+      state.DesImdbE = val;
+    },
+    setDesGenSerie(state, val){
+      state.DesGenSerie = val;
+    },
+    setDesPais(state, val){
+      state.DesPais = val;
+    },
+    setStateAll(state, val){
+
+      state.DesYearI = val;
+      state.DesYearE = val;
+      state.DesImdbI = val;
+      state.DesImdbE = val;
+      state.DesGenSerie = "";
+      state.DesPais = "";
+      state.s = "pelicula";
+    },
     
     scrollToTopCine() {
         window.scrollTo(0,0);
@@ -39,7 +70,6 @@ export const state = () => ({
       }, 
       scrollToTop() {
         window.scrollTo(0,0);
-        this.state.skeleton = 0;
    //     console.log(this.state.skeleton)
       }, 
       enableordisableCookie(state, payload) {

@@ -215,36 +215,35 @@ export default {
       cerrarYear(){
      delete this.urlTest.yearI;
      delete this.urlTest.yearE;
-          this.$store.state.DesYearI = 0
-      this.$store.state.DesYearE = 0
+         this.$store.commit('setDesYearI', 0);
+               this.$store.commit('setDesYearE', 0);
      	this.$store.commit('scrollToTop');
-		
+      this.yearI = 2000; 
+      this.yearE = 2020;
 			this.$router.push({ name: 'descubrir-pag',  query: this.urlTest })
       },
        cerrarImdb(){
      delete this.urlTest.imdbI;
      delete this.urlTest.imdbE;
- 
-    
-      this.$store.state.DesImdbI = 0; 
-      this.$store.state.DesImdbE = 0; 
-     	this.$store.commit('scrollToTop');
-		
-			this.$router.push({ name: 'descubrir-pag',  query: this.urlTest })
+    this.$store.commit('setDesImdbI', 0);
+    this.$store.commit('setDesImdbE', 0);
+    this.$store.commit('scrollToTop');
+    this.$router.push({ name: 'descubrir-pag',  query: this.urlTest })
       },
       cerrarGenSerie(){
       delete this.urlTest.genS;
-      this.$store.state.DesGenSerie = ""; 
+       this.$store.commit('setDesGenSerie', "");
      	this.$store.commit('scrollToTop');
 			this.$router.push({ name: 'descubrir-pag',  query: this.urlTest })
       },
       cerrarPais(){
 delete this.urlTest.pais;
-      this.$store.state.DesPais = ""; 
+      this.$store.commit('setDesPais', "");
      	this.$store.commit('scrollToTop');
 			this.$router.push({ name: 'descubrir-pag',  query: this.urlTest })
       },
 		async getdescubrir(){
+   //   console.log("this get descubrir")
     //  const valores = window.location.search;
       //     const urlParams = new URLSearchParams(valores);
       //     let params = new URLSearchParams(location.search);
@@ -257,11 +256,7 @@ delete this.urlTest.pais;
           var genS = this.$router.currentRoute.query.genS; 
           var pais = this.$router.currentRoute.query.pais; 
           var Order = this.$router.currentRoute.query.Order; 
-          console.log(this.urlProcesos +
-          "wp-json/buscador/descubrir/post/?t="+this.tipo
-          +"&yearI="+yearsI+"&yearE="+yearsE+"&imdbI="+imdbI+"&imdbE="+imdbE
-          +"&genS="+genS+"&pais="+pais+"&Order="+Order
-          +"&xPag="+this.registrosxPag+"&ini="+this.ini+"&fin="+this.fin)
+         
       
             await fetch(this.urlProcesos +
           "wp-json/buscador/descubrir/post/?t="+this.tipo
@@ -270,7 +265,7 @@ delete this.urlTest.pais;
           +"&xPag="+this.registrosxPag+"&ini="+this.ini+"&fin="+this.fin)
                     .then((r) => r.json())
                     .then((res) => {
-                    console.log(res)
+                //    console.log(res)
                    
                      this.generos = res[0].generos; 
                      this.paises = res[0].paises;
@@ -304,18 +299,16 @@ delete this.urlTest.pais;
                        this.num_actual_fin = 3
                      
                      }
-                   
+
+                     
                     }
                     );
            }, 
-		
-    },
-     components: {
-         dropdown, descubrirSidebar, descubrirContent, SkeletonMio
-         }, 
-         created() {
+
+           crearRutas(){
+
           
-          
+    //      console.log("volvi a caer en")
         //   console.log(window.location.search)
 //const valores = window.location.search;
        //    const urlParams = new URLSearchParams(valores);
@@ -376,22 +369,28 @@ if(this.$router.currentRoute.query.yearI==undefined && this.$router.currentRoute
 && this.$router.currentRoute.query.genS==undefined && this.$router.currentRoute.query.pais==undefined
  && this.$router.currentRoute.query.s==undefined
 ){
-  //no hay ni un parametro 
-  this.$store.state.s = "serie"
-      this.$store.state.DesYearI = 0
-      this.$store.state.DesYearE = 0
+ // console.log("no hay nada por arriba ")
+
+     	this.$store.commit('setStateAll', 0);
       this.yearI = 2000; 
       this.yearE = 2020;
-      this.$store.state.DesImdbI = 0; 
-      this.$store.state.DesImdbE = 0; 
       this.imdbI = 0; 
       this.imdbE = 10; 
-      this.$store.state.DesGenSerie = "";
+      //  console.log("valor actual del año ", this.yearE)
       this.genSerie = ""
-      this.$store.state.DesPais = "";
+      
       this.pais = ""
      // console.log(this.$store.state.DesYearI)
 }else{
+     this.yearI = 2000; 
+      this.yearE = 2020;
+      this.imdbI = 0; 
+      this.imdbE = 10; 
+      
+      this.genSerie = ""
+      
+      this.pais = ""
+ // console.log("si hay algo por arriba ")
   var yearsI = parseInt(this.$router.currentRoute.query.yearI); 
   var yearsE = parseInt(this.$router.currentRoute.query.yearE); 
   var imdbI = parseInt(this.$router.currentRoute.query.imdbI); 
@@ -400,7 +399,8 @@ if(this.$router.currentRoute.query.yearI==undefined && this.$router.currentRoute
     var pais = this.$router.currentRoute.query.pais; 
     var s = this.$router.currentRoute.query.s; 
   //existe algun parametro de los mios 
-    for (const value of this.$router.currentRoute.query) {
+    for (const value of Object.keys(this.$router.currentRoute.query)) {
+      console.log("estoy dentro del ciclo for")
         if(value == 'yearI' || value == 'yearE' || value == 'imdbI' || value == 'imdbE'
         || value == 'genS'   || value == 'pais' || value == 's'
         ){
@@ -408,18 +408,20 @@ if(this.$router.currentRoute.query.yearI==undefined && this.$router.currentRoute
             //años
              this.urlTest.yearI = yearsI
              this.urlTest.yearE = yearsE
-             this.$store.state.DesYearI = yearsI
-              this.$store.state.DesYearE = yearsE
+             	this.$store.commit('setDesYearI', yearsI);
+               this.$store.commit('setDesYearE', yearsE);
               this.yearI = yearsI
               this.yearE = yearsE
+           //   console.log("estoy en year", yearsI)
           }
          
            if(this.$router.currentRoute.query.imdbI != undefined && this.$router.currentRoute.query.imdbE != undefined){
               //imdb
               this.urlTest.imdbI = imdbI
              this.urlTest.imdbE = imdbE
-              this.$store.state.DesImdbI = imdbI; 
-             this.$store.state.DesImdbE = imdbE;
+             this.$store.commit('setDesImdbI', imdbI);
+             this.$store.commit('setDesImdbE', imdbE);
+          
                  this.imdbI = imdbI;
                 this.imdbE = imdbE; 
           }
@@ -428,21 +430,23 @@ if(this.$router.currentRoute.query.yearI==undefined && this.$router.currentRoute
            if(this.$router.currentRoute.query.genS != undefined ){
               //Genero Serie
               this.urlTest.genS = genS
-             this.$store.state.DesGenSerie = genS
+         
+              this.$store.commit('setDesGenSerie', genS);
                 this.genSerie = genS
           }
 
            if(this.$router.currentRoute.query.pais != undefined ){
               //Genero Serie
               this.urlTest.pais = pais
-             this.$store.state.DesPais = pais
+               this.$store.commit('setDesPais', pais);
                 this.pais = pais
           }
           if(this.$router.currentRoute.query.s != undefined ){
               //Genero Serie
               this.urlTest.s = s
-             this.$store.state.s = s
+            	this.$store.commit('setS', s);
                 this.tipo = s
+               // console.log("estoy en s ")
           }
           
          
@@ -453,12 +457,37 @@ if(this.$router.currentRoute.query.yearI==undefined && this.$router.currentRoute
 }
 
 
+           }
+		
+    },
+     components: {
+         dropdown, descubrirSidebar, descubrirContent, SkeletonMio
+         }, 
+         created() {
               
-
+              this.crearRutas()
          },
+                watch:{
+    $route (to, from){
+        this.skeletonmio = true
+       this.crearRutas()
+     
+if(this.$route.params.pag > 1){
+  
+    this.ini = (parseInt(this.$route.params.pag) - 1) * this.registrosxPag;
+    
+}else{
+
+    this.ini = 0; 
+}
+
+
+this.getdescubrir();
+    }
+},
   mounted() {
 
-   
+ //  console.log("cai en mounted")
 this.$store.commit('setSkeleton', 1);
 if(this.$route.params.pag > 1){
   

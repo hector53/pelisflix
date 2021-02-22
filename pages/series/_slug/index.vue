@@ -273,10 +273,11 @@
 
                                             <div class="episodes-list" v-for="(tempo, index) in movie.temporadas_capitulos" :key="index" v-show="tabTemp == index+1">
                                                 <div class="ui list">
-                                                    <div class="item season_regular" v-for="(capi, index) in tempo.capitulos" :key="index" >
+                                                    <div class="item season_regular"
+                                                     v-for="(capi, index) in tempo.capitulos" :key="index" :class="{'noCap' : verCaps < index & cortarCaps}" >
                                                         <table class="ui basic unstackable table">
                                                             <tbody>
-                                                                <tr>
+                                                                <tr >
                                                                     <td class="collapsing table-episode-check">
                                                                        
                                                                         <div class="ordilabel">
@@ -308,9 +309,16 @@
                                                                     </td>
                                                                    
                                                                 </tr>
+                                                                
                                                             </tbody>
                                                         </table>
                                                     </div> <!-- // .item -->
+                                            <button type="button" class="ui button load-more series-load-more"
+                                            :class="{'disabled' : cortarCaps==false}"  @click="verMasCaps()">
+                                            <svg
+                                            class="mofycon">
+                                            <use xlink:href="#icon-plus"></use>
+                                            </svg>Cargar Más</button>
                                                 </div>
                                             </div>
 
@@ -385,8 +393,9 @@ var tituloSeo = metaArray[3].content
             meta: this.SeoPost, 
             link: [
       { rel: 'canonical', href: this.$store.state.siteUrl }, 
-      
-    ]
+     
+    ], 
+     
     }
   },
    data (){
@@ -397,12 +406,18 @@ var tituloSeo = metaArray[3].content
               id_user: null, 
           userName: null,
           post_id: null,
+          verCaps: 10, 
+      cortarCaps: true
+      
         }
     },
       computed:{
         ...mapState(['urlProcesos'])
     },
     methods: {
+        verMasCaps(){
+                    this.verCaps = this.verCaps + 10
+        },
         async SeriesGetDetails(){
             await fetch(this.urlProcesos+'wp-json/series/detalle_slug/post/?slug='+this.$route.params.slug)
                     .then((r) => r.json())
@@ -437,6 +452,7 @@ var tituloSeo = metaArray[3].content
             },  
           changeTabTemp(index){
             this.tabTemp = index;
+            this.verCaps = 10
           }
     },
      components: {
@@ -461,3 +477,11 @@ this.SeriesGetDetails()
 
 }
 </script>
+<style >
+.noCap{
+    display: none!important;
+}
+.ui.load-more.series-load-more {
+    margin-bottom: 10px!important;
+}
+</style>

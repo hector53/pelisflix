@@ -42,6 +42,17 @@
 						{{movie2.post_title}}</nuxt-link >
 								</div>
 							</div>
+
+							<div class="column">
+								<h6 style="    margin-top: 40px;">Series Nuevas</h6>
+								<div class="ui link list">
+									<nuxt-link class="item" @click.native="$store.commit('scrollToTop')"
+                         :to="{ name: 'series-slug', params: {slug: movie2.post_name} }"
+						 v-for="(movie2, index) in movie.seriesNuevas" :key="index"
+						 >
+						{{movie2.post_title}}</nuxt-link >
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="column">
@@ -54,6 +65,18 @@
 									<nuxt-link class="item" @click.native="$store.commit('scrollToTop')"
                          :to="{ name: 'peliculas-slug', params: {slug: movie2.post_name} }"
 						 v-for="(movie2, index) in movie.moviesPopulares" :key="index"
+						 >
+						{{movie2.post_title}}</nuxt-link >
+								</div>
+							</div>
+							
+							<div class="column">
+								<h6 style="    margin-top: 40px;">Películas Nuevas</h6>
+
+								<div class="ui link list">
+									<nuxt-link class="item" @click.native="$store.commit('scrollToTop')"
+                         :to="{ name: 'peliculas-slug', params: {slug: movie2.post_name} }"
+						 v-for="(movie2, index) in movie.moviesNuevas" :key="index"
 						 >
 						{{movie2.post_title}}</nuxt-link >
 								</div>
