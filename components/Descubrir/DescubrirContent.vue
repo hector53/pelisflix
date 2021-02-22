@@ -211,6 +211,15 @@ export default {
     methods: {
         
     },
+	           watch:{
+    $route (to, from){
+		  if(this.$router.currentRoute.query.s==undefined){
+              this.tipoS = 'pelicula'
+           }else{
+                  this.tipoS = this.$router.currentRoute.query.s
+           }
+    }
+},
     mounted() {
 		
     },

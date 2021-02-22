@@ -26,6 +26,7 @@
 <ul class="clearfix mb-0">
 	    
 	    <li class="segment-poster" v-for="(movie, index) in arrayMiColeccion" :key="index" >
+        <nuxt-link  :to="{ name: movie.post_type, params: {slug: movie.slug} }">	
 			<div class="poster poster-md">
 				<div class="poster-media">
 				<div class="blurring dimmable image dimmed"
@@ -43,25 +44,27 @@
 				          </div>
 				        </div>
 				      </div>
-				  <nuxt-link  :to="{ name: movie.post_type, params: {slug: movie.slug} }">
-						<img :src="movie.imagen2" class="imagenPoster">
+				 
+		 <nuxt-link  :to="{ name: movie.post_type, params: {slug: movie.slug} }">		
+       		<img :src="movie.imagen2" class="imagenPoster"> </nuxt-link>
 						<div class="poster-overlay">
 							<span class="item rating"><svg class="mofycon"><use xlink:href="#icon-star"></use></svg> 6.5</span>
 							<span class="item year">{{movie.year}}</span>
 						</div>
-					</nuxt-link>
+		
 				</div>
 				<div class="poster-subject">
-				  <nuxt-link  :to="{ name: movie.post_type, params: {slug: movie.slug} }">
 				
-					<h2 class="truncate">{{movie.titulo}}</h2></nuxt-link>
+				
+					<h2 class="truncate">{{movie.titulo}}</h2>
 					<p class="poster-meta truncate">
 						<span class="genres">
 							{{movie.genero}}						</span>
 					</p>
 				</div>
 			</div>
-		</div></li>
+		</div></nuxt-link>
+    </li>
 		</ul>
 
 

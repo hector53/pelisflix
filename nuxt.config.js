@@ -13,9 +13,7 @@ module.exports = {
     ],
   
     link: [
-       { rel: 'preload', href: 'https://beta.pelisflix.com/fonts/bernino/bernino_sans_semibold-webfont.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
-      { rel: 'preload', href: 'https://beta.pelisflix.com/fonts/bernino/bernino_sans_regular-webfont.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
-    
+     
       { rel: 'icon', href: '/favicon.png' }, 
       { rel: 'stylesheet', href: '/css/swiper.css',  },
       { rel: 'stylesheet', href: '/css/main.css' },

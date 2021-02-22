@@ -142,6 +142,16 @@ export default {
         }
     },
     watch: {
+		$route (to, from){
+		//	year
+				this.yearFin =  this.yearE
+				this.yearIni =  this.yearI
+				this.rangeYear = [this.yearI, this.yearE]
+				//imdb 
+				 this.imdbIni = this.imdbI, 
+         		   this.imdbFin = this.imdbE
+					this.rangeImdb = [this.imdbI, this.imdbE]
+		},
         rangeYear(range) {
             this.yearIni = range[0]; 
 			this.yearFin = range[1]
@@ -165,13 +175,9 @@ export default {
 				this.urlTest2 = {}
 			    this.urlTest2.s = tipo; 
 				this.$store.commit('scrollToTop');
-				this.$router.push({  name: 'descubrir-pag-pag', query: this.urlTest2 })
-				 this.$store.state.DesYearI = 0
-      this.$store.state.DesYearE = 0
-      this.$store.state.DesImdbI = 0; 
-      this.$store.state.DesImdbE = 0; 
-      this.$store.state.DesGenSerie = "";
-      this.$store.state.DesPais = "";
+				this.$router.push({  name: 'descubrir-pag', query: this.urlTest2 })
+				this.$store.commit('setStateAll', 0);
+      
 			}
 		},
 		buscarYear(){
