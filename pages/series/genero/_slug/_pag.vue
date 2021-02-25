@@ -21,8 +21,8 @@
         id="di-all-items"
       >
         <div class="watch-together-button">
-          <nuxt-link  :to="{name:'ver-peliculas-pag'}" class="ui primary button mt-sm" >
-            <font >Todas las peliculas</font></nuxt-link>
+          <nuxt-link  :to="{name:'series'}" class="ui primary button mt-sm" >
+            <font >Todas las Series</font></nuxt-link>
         </div>
       </div>
     </div>
