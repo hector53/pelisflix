@@ -314,11 +314,11 @@
                                                         </table>
                                                     </div> <!-- // .item -->
                                             <button type="button" class="ui button load-more series-load-more"
-                                            :class="{'disabled' : cortarCaps==false}"  @click="verMasCaps()">
+                                            :class="{'disabled' : cortarCaps==false}"  @click="verMasCaps(index)">
                                             <svg
                                             class="mofycon">
                                             <use xlink:href="#icon-plus"></use>
-                                            </svg>Cargar Más</button>
+                                            </svg>{{botonMostrarTexto}}</button>
                                                 </div>
                                             </div>
 
@@ -407,7 +407,8 @@ var tituloSeo = metaArray[3].content
           userName: null,
           post_id: null,
           verCaps: 10, 
-      cortarCaps: true
+      cortarCaps: true, 
+      botonMostrarTexto: "Mostrar Más"
       
         }
     },
@@ -415,8 +416,18 @@ var tituloSeo = metaArray[3].content
         ...mapState(['urlProcesos'])
     },
     methods: {
-        verMasCaps(){
+        verMasCaps(index){
+            var totalCaps = this.SeriesDetails[0].temporadas_capitulos[index].capitulos.length; 
+            if(this.verCaps >= totalCaps){
+                    this.verCaps = 10
+                    this.botonMostrarTexto = "Mostrar Más"
+                    return
+            }
+         
                     this.verCaps = this.verCaps + 10
+                    if(this.verCaps >= totalCaps){
+                        this.botonMostrarTexto = "Mostrar Menos"
+                    }
         },
         async SeriesGetDetails(){
             await fetch(this.urlProcesos+'wp-json/series/detalle_slug/post/?slug='+this.$route.params.slug)

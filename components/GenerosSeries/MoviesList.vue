@@ -1,12 +1,15 @@
 <template>
 <div>
     <ul class="flex flex-wrap">
+
+
+
     <li class="mofy-moviesli" v-for="(movie, index) in arrayUltimas " :key="index" >
             <div class="mofy-movbox">
                     <div class="mofy-movbox-image relative">
-                    <nuxt-link  :to="{ name: 'peliculas-slug', params: {slug: movie.slug} }">
+                    <nuxt-link  :to="{ name: 'series-slug', params: {slug: movie.slug} }">
                         
-                            <img class="lazy-wide loaded lastMoviesHomeclass"
+                            <img class="lazy-wide loaded "
                                 :src="movie.imagen2"
                                 :alt="movie.titulo" >
                             <div class="mofy-movbox-on absolute">
@@ -41,26 +44,26 @@
 
       <div class="ui pagination menu" >
 <nuxt-link class="item"   
-	:to="{ name: 'ver-peliculas-pag', params: {pag: 1}, query: urlTest }" rel="start"
+	:to="{ name: 'series-genero-slug-pag', params: {pag: 1, slug: genSlug}, }" rel="start"
 	v-show="paginaActual > 1"
 	 >&lt; Primero</nuxt-link>
 <nuxt-link class="item"   
-	:to="{ name: 'ver-peliculas-pag', params: {pag: paginaActual - 1}, query: urlTest }" rel="prev"
+	:to="{ name: 'series-genero-slug-pag', params: {pag: paginaActual - 1, slug: genSlug}, }" rel="prev"
 	v-show="paginaActual > 1"
 	 >&lt;</nuxt-link>
 	<nuxt-link class="item"   
 	 v-for="(n, index) in totalPaginas" :key="index"
 	 :class="{'active' : n == paginaActual   }"
-	:to="{ name: 'ver-peliculas-pag', params: {pag: n}, query: urlTest }"
+	:to="{ name: 'series-genero-slug-pag', params: {pag: n, slug: genSlug}, }"
 	v-show="n >= num_actual_ini && n <= num_actual_fin "
 	>
 	{{n}}</nuxt-link>
 	<nuxt-link class="item"   
-	:to="{ name: 'ver-peliculas-pag', params: {pag: paginaActual + 1}, query: urlTest }" rel="next"
+	:to="{ name: 'series-genero-slug-pag', params: {pag: paginaActual + 1, slug: genSlug}, }" rel="next"
 	v-show="paginaActual < totalPaginas"
 	 >&gt;</nuxt-link>
 	<nuxt-link class="item"  
-	:to="{ name: 'ver-peliculas-pag', params: {pag: totalPaginas}, query: urlTest }" rel="start"
+	:to="{ name: 'series-genero-slug-pag', params: {pag: totalPaginas, slug: genSlug}, }" rel="start"
 	v-show="paginaActual < totalPaginas"
 	 >Ultimo &gt;</nuxt-link>		
     	</div>    
@@ -71,10 +74,14 @@
 
 <script>
 export default {
-  name: 'UltimasPeliculas',
+  name: 'SeriesList',
    props: {
         arrayUltimas:{
             type: Array, 
+            required: true,
+        },
+        genSlug:{
+                type: String, 
             required: true,
         },
         totalPaginas:{
@@ -110,3 +117,9 @@ export default {
     },
 }
 </script>
+<style >
+.mofy-moviesli {
+    width: 25%;
+    padding: 5px;
+}
+</style>
