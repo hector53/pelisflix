@@ -384,8 +384,8 @@ console.log(seoDetails.data[0])
         });
       });
 metaArray[6].content = metaArray[6].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
-var tituloSeo = "Ver "+seoDetails.data[0].title.rendered+" Online Gratis Full HD"
-metaArray[4].content = "Ver "+seoDetails.data[0].title.rendered+" Online Gratis Full HD"
+var tituloSeo = metaArray[4].content
+
     return {  SeoPost: metaArray, tituloSeo: tituloSeo };
   },
     head(){

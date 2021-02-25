@@ -146,7 +146,7 @@ export default {
   name: 'MoviesDetails',
   head(){
     return {
-      title: this.MoviesDetailsasync[0].titulo+' - Pelisflix',
+      title: this.tituloSeo,
             meta: this.SeoPost, 
             link: [
       { rel: 'canonical', href: this.$store.state.siteUrl }, 
@@ -175,7 +175,8 @@ export default {
         });
       });
 metaArray[4].content = metaArray[4].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
-    return { MoviesDetailsasync: postMovies.data, SeoPost: metaArray };
+var tituloSeo = metaArray[4].content
+    return { MoviesDetailsasync: postMovies.data, SeoPost: metaArray, tituloSeo: tituloSeo };
   },
    data (){
         return {
