@@ -115,6 +115,7 @@
 <script>
 // @ is an alias to /src
 import Cookies from "js-cookie";
+import axios from 'axios'
 import { mapState } from "vuex";
 import ReproductoresSeries from '@/components/SeriesDetails/ReproductoresSeries.vue'; 
 import SwiperSliderCaps from '@/components/SeriesDetails/SwiperSliderCaps.vue'; 
@@ -124,6 +125,47 @@ import ComentariosFlix from '@/components/Comentarios/ComentariosFlix.vue'
 export default {
   name: "SeriesDetailsCap",
     components: {ReproductoresSeries, SwiperSliderCaps, Cookies, ComentariosFlix, Likes},
+      async asyncData({ params, store, context}) {
+       
+  
+
+     const seoDetails = await axios.get(
+      `${store.state.urlProcesos}wp-json/wp/v2/serie/?slug=${params.slug}`
+    );
+console.log(seoDetails.data[0])
+    const metaArray = [];
+      seoDetails.data[0].yoast_meta.map(ele => {
+        metaArray.push({
+         hid: ele.name ? ele.name : ele.property,
+          name: ele.name ? ele.name : ele.property,
+          content: ele.content,
+        });
+      });
+metaArray[6].content = metaArray[6].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
+var tituloSeo = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
+
+metaArray[4].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
+
+metaArray[0].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+
+" Completa Online ✅ Serie "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+
+" en Latino, Castellano y Subtitulado Gratis en HD."
+metaArray[5].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+
+" Completa Online ✅ Serie "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+
+" en Latino, Castellano y Subtitulado Gratis en HD."
+   
+   return {  SeoPost: metaArray, tituloSeo: tituloSeo };
+  },
+    head(){
+    return {
+        title: this.tituloSeo,
+            meta: this.SeoPost, 
+            link: [
+      { rel: 'canonical', href: this.$store.state.siteUrl }, 
+     
+    ], 
+     
+    }
+  },
   data() {
     return {
       SeriesDetails: [],

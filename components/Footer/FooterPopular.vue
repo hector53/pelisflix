@@ -9,7 +9,7 @@
 								<div class="ui link list">
 
 						<nuxt-link class="item" @click.native="$store.commit('scrollToTop')"
-                         :to="{ name: 'series-genero-slug', params: {slug: movie2.slug} }"
+                         :to="{ name: 'series-genero-slug-pag', params: {slug: movie2.slug} }"
 						 v-for="(movie2, index) in movie.categoriasSeries" :key="index"
 						 >
 						{{movie2.cat_name}}</nuxt-link >
@@ -20,7 +20,7 @@
 								<h6 style="    margin-top: 10px;">Películas</h6>
 								<div class="ui link list">
 								<nuxt-link class="item" @click.native="$store.commit('scrollToTop')"
-                         :to="{ name: 'peliculas-genero-slug', params: {slug: movie2.slug} }"
+                         :to="{ name: 'peliculas-genero-slug-pag', params: {slug: movie2.slug} }"
 						 v-for="(movie2, index) in movie.categoriasMovies" :key="index"
 						 >
 						{{movie2.cat_name}}</nuxt-link >
