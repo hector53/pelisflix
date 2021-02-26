@@ -174,7 +174,7 @@ export default {
           content: ele.content,
         });
       });
-metaArray[4].content = metaArray[4].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
+metaArray[6].content = metaArray[6].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
 var tituloSeo = metaArray[4].content
     return { MoviesDetailsasync: postMovies.data, SeoPost: metaArray, tituloSeo: tituloSeo };
   },

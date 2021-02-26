@@ -47,9 +47,29 @@ import MoviesList from '@/components/GenerosMovies/MoviesList.vue';
 export default {
   name: "GenerosPeliculas",
   components: {GenerosMovies, MoviesList},
-  async asyncData({ params, store, context }) {},
-  head() {
-    return {};
+  async asyncData({ params, store, context }) {
+    var parametro = params.slug.replace("-", " "); 
+    return {generoParam: parametro}
+  },
+ head(){
+    return {
+      
+      title: "Ver Películas de "+this.generoParam+" Online Gratis Completas HD",
+            meta: [
+                { name: 'description', content:  this.$store.state.descripcionHome},
+                { property: 'og:locale', content: 'es_ES'},
+                { property: 'og:title', content: this.$store.state.titleHome},
+                { property: 'og:site_name', content: this.$store.state.siteName},
+                {property: 'og:type', content: 'website'},    
+                {property: 'og:url', content: this.$store.state.siteUrl+"peliculas/genero/"+this.$route.params.slug},
+                { name: 'twitter:card', content:  'summary_large_image'}, 
+                {name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'} 
+            ], 
+            link: [
+      { rel: 'canonical', href: this.$store.state.siteUrl }, 
+      
+    ]
+    }
   },
   data() {
     return {

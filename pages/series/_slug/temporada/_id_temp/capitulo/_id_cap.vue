@@ -141,7 +141,7 @@ console.log(seoDetails.data[0])
           content: ele.content,
         });
       });
-metaArray[6].content = metaArray[6].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
+metaArray[6].content = metaArray[6].content.replace("api.pelisflix.com", store.state.siteUrlSeo)+"temporada/"+params.id_temp+"/capitulo/"+params.id_cap;
 var tituloSeo = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
 
 metaArray[4].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
