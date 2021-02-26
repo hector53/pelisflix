@@ -65,6 +65,7 @@ module.exports = {
     '@nuxtjs/axios', 
     'vue-sweetalert2/nuxt',
     'vue-scrollto/nuxt',
+    '@nuxtjs/sitemap'
    
    
   ], 

@@ -35552,8 +35552,8 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
     display: block;
     width: 100%;
     height: 75px;
-    background: url(~static/img/logoflix.png) center no-repeat;
-    background-size: 160px 32px;
+    background: url(https://assets.pelisflix.com/2021/02/logowhite.svg) center no-repeat;
+    background-size: contain;
     text-indent: -999px
 }
 

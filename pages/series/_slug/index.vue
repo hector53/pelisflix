@@ -315,10 +315,7 @@
                                                     </div> <!-- // .item -->
                                             <button type="button" class="ui button load-more series-load-more"
                                             :class="{'disabled' : cortarCaps==false}"  @click="verMasCaps(index)">
-                                            <svg
-                                            class="mofycon">
-                                            <use xlink:href="#icon-plus"></use>
-                                            </svg>{{botonMostrarTexto}}</button>
+                                            <span class="iconplus">{{iconPlus}}</span> {{botonMostrarTexto}}</button>
                                                 </div>
                                             </div>
 
@@ -382,6 +379,7 @@ console.log(seoDetails.data[0])
           name: ele.name ? ele.name : ele.property,
           content: ele.content,
         });
+        
       });
 metaArray[6].content = metaArray[6].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
 var tituloSeo = metaArray[4].content
@@ -409,7 +407,8 @@ var tituloSeo = metaArray[4].content
           post_id: null,
           verCaps: 10, 
       cortarCaps: true, 
-      botonMostrarTexto: "Mostrar Más"
+      botonMostrarTexto: "Mostrar Más", 
+      iconPlus: "+"
       
         }
     },
@@ -422,12 +421,14 @@ var tituloSeo = metaArray[4].content
             if(this.verCaps >= totalCaps){
                     this.verCaps = 10
                     this.botonMostrarTexto = "Mostrar Más"
+                    this.iconPlus = "+"
                     return
             }
          
                     this.verCaps = this.verCaps + 10
                     if(this.verCaps >= totalCaps){
                         this.botonMostrarTexto = "Mostrar Menos"
+                         this.iconPlus = "-"
                     }
         },
         async SeriesGetDetails(){
@@ -490,6 +491,9 @@ this.SeriesGetDetails()
 }
 </script>
 <style >
+.iconplus{
+        font-size: 18px;
+}
 .noCap{
     display: none!important;
 }
