@@ -28,6 +28,26 @@ import {mapState} from 'vuex'
 import VerSeriesABCList from '@/components/VerSeries/VerSeriesABCList.vue'
 export default {
   name: 'VerSeries',
+  head(){
+    return {
+      
+      title: "Series - "+this.$store.state.titleHome,
+            meta: [
+                { name: 'description', content:  this.$store.state.descripcionHome},
+                { property: 'og:locale', content: 'es_ES'},
+                { property: 'og:title', content: this.$store.state.titleHome},
+                { property: 'og:site_name', content: this.$store.state.siteName},
+                {property: 'og:type', content: 'website'},    
+                {property: 'og:url', content: this.$store.state.siteUrl},   
+                { name: 'twitter:card', content:  'summary_large_image'}, 
+                {name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'} 
+            ], 
+            link: [
+      { rel: 'canonical', href: this.$store.state.siteUrl }, 
+      
+    ]
+    }
+  },
    data (){
         return {
       VerSerie: [], 
