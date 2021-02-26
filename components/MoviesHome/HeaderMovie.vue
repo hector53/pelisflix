@@ -177,7 +177,7 @@ export default {
          class="swal2-input" autocomplete="on">
          <input type="password" id="swrpassword" placeholder="Contraseña"
           class="swal2-input" autocomplete="on">
-          <input type="password" id="swrrpassword" placeholder="Contraseña de nuevo" 
+          <input type="password" id="swrrpassword" placeholder="Repetir Contraseña" 
           class="swal2-input" autocomplete="on">
           </form>
 				<a id="reset-password" class="ui button secondary ml-xs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Restablecer la contraseña</font></font></a>
