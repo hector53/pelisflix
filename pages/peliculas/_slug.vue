@@ -53,7 +53,7 @@
                                 <div class="ui list">
                                     <div class="item"><span class="label">Generos:</span> 
                     <nuxt-link class="item" @click="$store.commit('scrollToTop')"
-                         :to="{ name: 'peliculas-genero-slug', params: {slug: genero.slug} }"
+                         :to="{ name: 'peliculas-genero-slug-pag', params: {slug: genero.slug} }"
 						 v-for="(genero, index) in movie.generos" :key="index"
 						 >{{genero.genero}}</nuxt-link></div>
                                 </div>
