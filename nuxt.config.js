@@ -69,6 +69,27 @@ module.exports = {
    
    
   ], 
+
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://beta.pelisflix.com',
+    gzip: true,
+    xmlNs: 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+    
+    sitemaps: [
+      {
+        path: '/sitemap-pages.xml',
+        routes: ['/', '/descubrir', '/tendencias', '/calendario', '/series', '/peliculas', '/foro', '/colecciones' ],
+        // ...
+      }, {
+        path: '/sitemap-peliculas.xml',
+        exclude: ['/', '/descubrir', '/tendencias', '/calendario', '/series', '/foro', '/colecciones', '/notificaciones' ],
+        // ...
+      }
+    ]
+  },
+
+
   cache: {
  
     pages: [
