@@ -27,7 +27,7 @@ module.exports = {
         type: 'font/woff2',
         href: 'https://pelisflix.com/fonts/bernino/bernino_sans_semibold-webfont.woff2'
       },
-      { rel: 'icon', href: 'https://pelisflix.com/favicon.ico' }, 
+      { rel: 'icon', href: '/img/icon.ico' }, 
       { rel: 'stylesheet', href: '/css/swiper.css',  },
       { rel: 'stylesheet', href: '/css/main.css' },
       { rel: 'stylesheet', href: '/css/yds.min.css' },
