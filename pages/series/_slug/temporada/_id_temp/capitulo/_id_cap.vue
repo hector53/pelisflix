@@ -132,8 +132,10 @@ console.log(seoDetails.data[0])
         });
       });
 metaArray[6].content = metaArray[6].content.replace("api.pelisflix.com", store.state.siteUrlSeo)+"temporada/"+params.id_temp+"/capitulo/"+params.id_cap;
-var tituloSeo = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
+metaArray[6].content = metaArray[6].content.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 
+var tituloSeo = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
+tituloSeo = tituloSeo.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 metaArray[4].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
 
 metaArray[0].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+
@@ -200,7 +202,7 @@ metaArray[5].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_te
       return;
     },
     changeTabTemp(index) {
-      
+
       this.tabTemp = index;
     },
   },
