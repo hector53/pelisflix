@@ -16,8 +16,8 @@ export const state = () => ({
     siteName: 'Pelisflix',
     siteUrlSeo: 'pelisflix.com',
     siteUrl: 'https://pelisflix.com/',
-    titleHome: 'Pelisflix ▷ Ver Peliculas y Series Online Gratis Completas HD',
-    descripcionHome: 'En ✅ Pelisflix ✅ puedes ver peliculas y series online gratis HD en Español, Latino y Subtitulado. Ver Estrenos, Episodios y Temporadas Completas en HD.'
+    titleHome: 'PELISFLIX【❤️】Ver Películas y Series Online Gratis Completas HD ✔️',
+    descripcionHome: 'En ✅ PelisFlix ✅ puedes ver Películas y series online gratis HD en Español, Latino y Subtitulado. Ver Episodios y Temporadas Completas actualizadas en HD.【PelisFlix.com】'
   })
 
   export const getters = {
