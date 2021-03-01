@@ -65,33 +65,13 @@ module.exports = {
     '@nuxtjs/axios', 
     'vue-sweetalert2/nuxt',
     'vue-scrollto/nuxt',
-    'nuxt-ssr-cache',
+
    
    
   ], 
 
 
 
-
-  cache: {
- 
-    pages: [
-     
-      '/'
-    ],
-    
-    store: {
-      type: 'redis',
-      host: 'localhost',
-      ttl: 10 * 60,
-      configure: [
-        // these values are configured
-        // on redis upon initialization
-        ['maxmemory', '200mb'],
-        ['maxmemory-policy', 'allkeys-lru'],
-      ],
-    },
-  },
   plugins: [
     { src: '~/plugins/VuSkeletonLoading.js', mode: 'client' }, // only on client side
     { src: '~/plugins/Vunotification.js', mode: 'client' }, // only on client side
