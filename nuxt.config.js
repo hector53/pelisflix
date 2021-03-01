@@ -18,14 +18,14 @@ module.exports = {
         as: 'font',
         crossorigin: 'crossorigin',
         type: 'font/woff2',
-        href: 'https://beta.pelisflix.com/fonts/bernino/bernino_sans_regular-webfont.woff2'
+        href: 'https://pelisflix.com/fonts/bernino/bernino_sans_regular-webfont.woff2'
       }, 
       {
         rel: 'preload',
         as: 'font',
         crossorigin: 'crossorigin',
         type: 'font/woff2',
-        href: 'https://beta.pelisflix.com/fonts/bernino/bernino_sans_semibold-webfont.woff2'
+        href: 'https://pelisflix.com/fonts/bernino/bernino_sans_semibold-webfont.woff2'
       },
       { rel: 'icon', href: '/favicon.png' }, 
       { rel: 'stylesheet', href: '/css/swiper.css',  },
