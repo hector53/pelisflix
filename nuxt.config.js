@@ -65,29 +65,12 @@ module.exports = {
     '@nuxtjs/axios', 
     'vue-sweetalert2/nuxt',
     'vue-scrollto/nuxt',
-    '@nuxtjs/sitemap'
+    'nuxt-ssr-cache',
    
    
   ], 
 
-  sitemap: {
-    path: '/sitemap.xml',
-    hostname: 'https://beta.pelisflix.com',
-    gzip: true,
-    xmlNs: 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-    
-    sitemaps: [
-      {
-        path: '/sitemap-pages.xml',
-        routes: ['/', '/descubrir', '/tendencias', '/calendario', '/series', '/peliculas', '/foro', '/colecciones' ],
-        // ...
-      }, {
-        path: '/sitemap-peliculas.xml',
-        exclude: ['/', '/descubrir', '/tendencias', '/calendario', '/series', '/foro', '/colecciones', '/notificaciones' ],
-        // ...
-      }
-    ]
-  },
+
 
 
   cache: {
@@ -98,17 +81,15 @@ module.exports = {
     ],
     
     store: {
-    
-      type: 'memory',
- 
-      // maximum number of pages to store in memory
-      // if limit is reached, least recently used page
-      // is removed.
-      max: 100,
- 
-      // number of seconds to store this page in cache
-      ttl: 60,
-      
+      type: 'redis',
+      host: 'localhost',
+      ttl: 10 * 60,
+      configure: [
+        // these values are configured
+        // on redis upon initialization
+        ['maxmemory', '200mb'],
+        ['maxmemory-policy', 'allkeys-lru'],
+      ],
     },
   },
   plugins: [
