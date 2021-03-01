@@ -29,6 +29,16 @@
                 </div>
             </div>
         </div>
+
+        <div class="right floated right aligned six wide column computer only pb-0">
+			<div class="media-date">
+				<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11.99 2c-5.52 0-9.99 4.48-9.99 10s4.47 10 9.99 10c5.53 0 10.01-4.48 10.01-10s-4.48-10-10.01-10zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+					<path d="M12.5 7h-1.5v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+				</svg>
+				<span>{{movie.fecha}}</span>
+			</div>
+		</div>
      
     </div>
     
@@ -122,7 +132,6 @@ export default {
      const seoDetails = await axios.get(
       `${store.state.urlProcesos}wp-json/wp/v2/serie/?slug=${params.slug}`
     );
-console.log(seoDetails.data[0])
     const metaArray = [];
       seoDetails.data[0].yoast_meta.map(ele => {
         metaArray.push({
@@ -132,12 +141,12 @@ console.log(seoDetails.data[0])
         });
       });
 metaArray[6].content = metaArray[6].content.replace("api.pelisflix.com", store.state.siteUrlSeo)+"temporada/"+params.id_temp+"/capitulo/"+params.id_cap;
-metaArray[6].content = metaArray[6].content.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-
+console.log(metaArray[6].content)
 var tituloSeo = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
-tituloSeo = tituloSeo.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-metaArray[4].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
 
+
+metaArray[4].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
+console.log(metaArray[4].content)
 metaArray[0].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+
 " Completa Online ✅ Serie "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+
 " en Latino, Castellano y Subtitulado Gratis en HD."
