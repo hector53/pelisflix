@@ -11,6 +11,16 @@
                 </div>
             </div>
         </div>
+
+           <div class="right floated right aligned six wide column computer only pb-0">
+			<div class="media-date">
+				<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11.99 2c-5.52 0-9.99 4.48-9.99 10s4.47 10 9.99 10c5.53 0 10.01-4.48 10.01-10s-4.48-10-10.01-10zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+					<path d="M12.5 7h-1.5v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+				</svg>
+				<span>{{fechaCreated}}</span>
+			</div>
+		</div>
      
     </div>
     <div class="ui grid">
