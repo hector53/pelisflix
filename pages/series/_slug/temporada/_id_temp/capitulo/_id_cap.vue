@@ -200,6 +200,7 @@ metaArray[5].content = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_te
       return;
     },
     changeTabTemp(index) {
+      
       this.tabTemp = index;
     },
   },
