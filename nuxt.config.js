@@ -34,7 +34,12 @@ module.exports = {
       { rel: 'stylesheet', href: '/css/yds-theme.min.css' },
       { rel: 'stylesheet', href: '/css/icon.min.css' },
      
-    ]
+    ], 
+	  script: [
+      {
+        src: "https://arc.io/widget.min.js#fjXzYLe3",
+      },
+    ],
   },
 
 

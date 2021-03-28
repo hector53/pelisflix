@@ -35473,11 +35473,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
     text-align: left;
     font-size: 13px;
     font-weight: 500;
-<<<<<<< HEAD
-    background-image: url(~static/~static/img/symbol_yd.svg);
-=======
     background-image: url(~static/img/symbol_yd.svg);
->>>>>>> 789f2616f59350b9e89588acc6babe9197db9891
     background-repeat: no-repeat;
     background-position: 42px 4px;
     background-size: 28%;
@@ -35553,20 +35549,13 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
 }
 
 #logo a {
+	
+
     display: block;
     width: 100%;
     height: 75px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    background: url(~static/~static/img/logoflix.png) center no-repeat;
-=======
-    background: url(~static/img/logoflix.png) center no-repeat;
->>>>>>> 789f2616f59350b9e89588acc6babe9197db9891
-    background-size: 160px 32px;
-=======
     background: url(https://assets.pelisflix.com/2021/02/logowhite.svg) center no-repeat;
     background-size: contain;
->>>>>>> a53940991264206d20d6e83981db2fae61ab36cf
     text-indent: -999px
 }
 
@@ -36409,11 +36398,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
 }
 
 .footer {
-<<<<<<< HEAD
-    background: #14161d url(~static/~static/img/footer-backdrop.png) top right no-repeat;
-=======
     background: #14161d url(~static/img/footer-backdrop.png) top right no-repeat;
->>>>>>> 789f2616f59350b9e89588acc6babe9197db9891
     background: #14161d;
     background-size: cover;
     border-top: 1px solid #1e2029;
@@ -37478,11 +37463,7 @@ scroll-wrapper .next-ep-holder .next-ep-wrapper .title-quaternary {
 }
 
 .login-page {
-<<<<<<< HEAD
-    background: #14161d url(~static/~static/img/base.png) no-repeat;
-=======
     background: #14161d url(~static/img/base.png) no-repeat;
->>>>>>> 789f2616f59350b9e89588acc6babe9197db9891
     background-size: cover;
     display: flex
 }
