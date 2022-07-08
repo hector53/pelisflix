@@ -47,11 +47,11 @@
             <div class="left floated aligned four wide column computer only pb-0 pl-0" id="playersag">
                 <div data-gets="" data-type="vdy">
                     <a rel="nofollow" href="https://bit.ly/3jNWreg" target="_blank"><img
-                            src="https://api.pelisflix.com/wp-content/uploads/2021/02/adsPromo1.gif"
+                            src="https://api.pelismania.co/wp-content/uploads/2021/02/adsPromo1.gif"
                             alt="" border="0" width="250" height="210"></a>
                     <br>
                     <a rel="nofollow" href="https://bit.ly/3lKe2VB" target="_blank"><img
-                            src="https://api.pelisflix.com/wp-content/uploads/2021/02/adsPromo2.gif"
+                            src="https://api.pelismania.co/wp-content/uploads/2021/02/adsPromo2.gif"
                             alt="" border="0" width="250" height="210"></a>
                    
                 </div>

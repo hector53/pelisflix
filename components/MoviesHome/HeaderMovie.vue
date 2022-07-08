@@ -4,7 +4,7 @@
       <button style="cursor: pointer;" class="mobile-menu-trigger"
        @click="dropdownHeader = !dropdownHeader"><span></span></button>
       <div id="logo">
-        <a href="#" data-navigo="">Pelisflix</a>
+        <a href="#" data-navigo="">PelisManiaco</a>
       </div>
       <div id="header-middle">
         <div id="search">
@@ -380,7 +380,7 @@ Cookies, DropdownPerfilMenu, DropdownPerfilNotify
   }, 
   mounted() {
     
-    this.metaDescripcion = "En ✅ PelisFlix ✅ puedes ver películas online gratis HD en Español, Latino y Subtitulado. Ver Películas, documentales, Estrenos Completos actualizados en HD.";
+    this.metaDescripcion = "En ✅ PelisManiaco ✅ puedes ver películas online gratis HD en Español, Latino y Subtitulado. Ver Películas, documentales, Estrenos Completos actualizados en HD.";
    // console.log(window.location.origin)
    //console.log(this.$store.state.arraySession)
     var co = Cookies.get("user_session"); 

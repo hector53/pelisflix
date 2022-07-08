@@ -381,7 +381,7 @@ console.log(seoDetails.data[0])
         });
         
       });
-metaArray[6].content = metaArray[6].content.replace("api.pelisflix.com", store.state.siteUrlSeo)
+metaArray[6].content = metaArray[6].content.replace("api.pelismania.co", store.state.siteUrlSeo)
 var tituloSeo = metaArray[4].content
 
     return {  SeoPost: metaArray, tituloSeo: tituloSeo };

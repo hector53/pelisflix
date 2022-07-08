@@ -14,7 +14,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "Ver Películas Online HD Gratis Completas 🥇 PelisFlix",
+      title: "Ver Películas Online HD Gratis Completas 🥇 PelisManiaco",
       meta: [
         {
           
@@ -28,7 +28,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: 'https://pelisflix.com/'
+          href: 'https://pelismania.co/'
         }
 			]
     };

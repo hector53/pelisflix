@@ -42,7 +42,7 @@
 				<nuxt-link @click.native="$store.commit('scrollToTop')" 
 					:to="{name:'foro-foro_slug', params: {foro_slug: movie.slugForo} }">
                   
-					<img src="https://api.pelisflix.com/wp-content/uploads/cover-general-discussion.png" 
+					<img src="https://api.pelismania.co/wp-content/uploads/cover-general-discussion.png" 
                     alt="deben cargarse matrices" class="lazy-wide loading"
                      data-was-processed="true">
 				</nuxt-link>

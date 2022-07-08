@@ -6,7 +6,7 @@ module.exports = {
 
   head: {
    
-    title: 'PelisFlix',
+    title: 'PelisManiaco',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,14 +18,14 @@ module.exports = {
         as: 'font',
         crossorigin: 'crossorigin',
         type: 'font/woff2',
-        href: 'https://pelisflix.com/fonts/bernino/bernino_sans_regular-webfont.woff2'
+        href: 'https://pelismania.co/fonts/bernino/bernino_sans_regular-webfont.woff2'
       }, 
       {
         rel: 'preload',
         as: 'font',
         crossorigin: 'crossorigin',
         type: 'font/woff2',
-        href: 'https://pelisflix.com/fonts/bernino/bernino_sans_semibold-webfont.woff2'
+        href: 'https://pelismania.co/fonts/bernino/bernino_sans_semibold-webfont.woff2'
       },
       { rel: 'icon', href: '/img/icon.ico' }, 
       { rel: 'stylesheet', href: '/css/swiper.css',  },
@@ -35,11 +35,6 @@ module.exports = {
       { rel: 'stylesheet', href: '/css/icon.min.css' },
      
     ], 
-	  script: [
-      {
-        src: "https://arc.io/widget.min.js#fjXzYLe3",
-      },
-    ],
   },
 
 

@@ -140,7 +140,7 @@ export default {
           content: ele.content,
         });
       });
-metaArray[6].content = metaArray[6].content.replace("api.pelisflix.com", store.state.siteUrlSeo)+"temporada/"+params.id_temp+"/capitulo/"+params.id_cap;
+metaArray[6].content = metaArray[6].content.replace("api.pelismania.co", store.state.siteUrlSeo)+"temporada/"+params.id_temp+"/capitulo/"+params.id_cap;
 console.log(metaArray[6].content)
 var tituloSeo = "Ver "+seoDetails.data[0].title.rendered+" "+params.id_temp+"x"+params.id_cap+" Online Gratis Full HD"
 

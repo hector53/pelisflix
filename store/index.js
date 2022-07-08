@@ -1,6 +1,6 @@
 export const state = () => ({
-    urlProcesos: 'https://api.pelisflix.com/',
-    urlBase: 'https://pelisflix.com/',
+    urlProcesos: 'https://api.pelismania.co/',
+    urlBase: 'https://pelismania.co/',
     skeleton:0, 
     DesYearI: 0, 
     DesYearE: 2020, 
@@ -13,11 +13,11 @@ export const state = () => ({
     arraySession: {}, 
     dropdownHeader: false, 
     opa: false, 
-    siteName: 'Pelisflix',
-    siteUrlSeo: 'pelisflix.com',
-    siteUrl: 'https://pelisflix.com/',
-    titleHome: 'PELISFLIX【❤️】Ver Películas y Series Online Gratis Completas HD ✔️',
-    descripcionHome: 'En ✅ PelisFlix ✅ puedes ver Películas y series online gratis HD en Español, Latino y Subtitulado. Ver Episodios y Temporadas Completas actualizadas en HD.【PelisFlix.com】'
+    siteName: 'PelisManiaco',
+    siteUrlSeo: 'pelismania.co',
+    siteUrl: 'https://pelismania.co/',
+    titleHome: 'PELISMANIACO【🤪】 Ver Películas y Series Online Gratis Completas HD ✔️',
+    descripcionHome: 'En ✅ PelisManiaco  ✅ puedes ver Películas y series online gratis HD en Español, Latino y Subtitulado. Ver Episodios y Temporadas Completas actualizadas en HD.【PelisManiaco .com】'
   })
 
   export const getters = {

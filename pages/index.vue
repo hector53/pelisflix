@@ -64,7 +64,7 @@ export default {
                 { property: 'og:site_name', content: this.$store.state.siteName},
                 {property: 'og:type', content: 'website'},    
                 {property: 'og:url', content: this.$store.state.siteUrl},   
-                {property: 'og:image', content: "https://assets.pelisflix.com/2021/02/bgHome.jpg"},  
+                {property: 'og:image', content: "https://assets.pelismaniaco/2021/02/bgHome.jpg"},  
                 { name: 'twitter:card', content:  'summary_large_image'}, 
                 {name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'} 
             ], 
